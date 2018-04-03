@@ -20,13 +20,14 @@
                 CssClass="table table-hover table-striped" GridLines="None"
                 DataSourceID="sdsVideos" AutoGenerateColumns="False" DataKeyNames="idArtigo" OnRowCommand="GridViewEditar_RowCommand">
                 <Columns>
-                    <asp:BoundField DataField="idArtigo" HeaderText="#" InsertVisible="False" ReadOnly="True" SortExpression="idArtigo" />
+
+                    <asp:BoundField DataField="idArtigo" HeaderText="idArtigo" InsertVisible="False" ReadOnly="True" SortExpression="idArtigo" />
                     <asp:BoundField DataField="titulo" HeaderText="titulo" SortExpression="titulo" />
                     <asp:BoundField DataField="texto" HeaderText="texto" SortExpression="texto" />
                     <asp:BoundField DataField="urlYoutube" HeaderText="urlYoutube" SortExpression="urlYoutube" />
                     <asp:CheckBoxField DataField="ativo" HeaderText="ativo" SortExpression="ativo" />
-                    <asp:BoundField DataField="ordemRelevancia" HeaderText="ordemRelevancia" SortExpression="ordemRelevancia" />
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="False" />
+                    <asp:BoundField DataField="dataHora" HeaderText="dataHora" SortExpression="dataHora" />
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                     <asp:TemplateField HeaderText="">
                         <ItemTemplate>
                             <asp:Button ID="btnEdit" runat="server" Width="60" Text="Editar" CommandName="EditButton" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
@@ -34,7 +35,7 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="sdsVideos" runat="server" ConnectionString="<%$ ConnectionStrings:YourPELcs %>" SelectCommand="SELECT [idArtigo], [titulo], [texto], [urlYoutube], [ativo], [ordemRelevancia], [dataHora] FROM [ARTIGO] WHERE ([tema] LIKE '%' + @tema + '%')" DeleteCommand="DELETE FROM [ARTIGO] WHERE [idArtigo] = @idArtigo" InsertCommand="INSERT INTO [ARTIGO] ([titulo], [texto], [urlYoutube], [ativo], [ordemRelevancia], [dataHora]) VALUES (@titulo, @texto, @urlYoutube, @ativo, @ordemRelevancia, @dataHora)" UpdateCommand="UPDATE [ARTIGO] SET [titulo] = @titulo, [texto] = @texto, [urlYoutube] = @urlYoutube, [ativo] = @ativo, [ordemRelevancia] = @ordemRelevancia, [dataHora] = @dataHora WHERE [idArtigo] = @idArtigo">
+            <asp:SqlDataSource ID="sdsVideos" runat="server" ConnectionString="<%$ ConnectionStrings:YourPELcs %>" SelectCommand="SELECT [idArtigo], [titulo], [texto], [urlYoutube], [ativo], [dataHora] FROM [ARTIGO] WHERE ([tema] LIKE '%' + @tema + '%')" DeleteCommand="DELETE FROM [ARTIGO] WHERE [idArtigo] = @idArtigo" InsertCommand="INSERT INTO [ARTIGO] ([titulo], [texto], [urlYoutube], [ativo],  [dataHora]) VALUES (@titulo, @texto, @urlYoutube, @ativo, @dataHora)" UpdateCommand="UPDATE [ARTIGO] SET [titulo] = @titulo, [texto] = @texto, [urlYoutube] = @urlYoutube, [ativo] = @ativo, [dataHora] = @dataHora WHERE [idArtigo] = @idArtigo">
                 <DeleteParameters>
                     <asp:Parameter Name="idArtigo" Type="Int32" />
                 </DeleteParameters>
@@ -43,7 +44,6 @@
                     <asp:Parameter Name="texto" Type="String" />
                     <asp:Parameter Name="urlYoutube" Type="String" />
                     <asp:Parameter Name="ativo" Type="Boolean" />
-                    <asp:Parameter Name="ordemRelevancia" Type="Int32" />
                     <asp:Parameter DbType="Date" Name="dataHora" />
                 </InsertParameters>
                 <SelectParameters>
@@ -54,7 +54,6 @@
                     <asp:Parameter Name="texto" Type="String" />
                     <asp:Parameter Name="urlYoutube" Type="String" />
                     <asp:Parameter Name="ativo" Type="Boolean" />
-                    <asp:Parameter Name="ordemRelevancia" Type="Int32" />
                     <asp:Parameter Name="dataHora" DbType="Date" />
                     <asp:Parameter Name="idArtigo" Type="Int32" />
                 </UpdateParameters>

@@ -21,6 +21,7 @@
                     <asp:BoundField DataField="local" HeaderText="local" SortExpression="local" />
                     <asp:BoundField DataField="descricao" HeaderText="descricao" SortExpression="descricao" />
                     <asp:BoundField DataField="dataHora_Inicial" HeaderText="dataHora_Inicial" SortExpression="dataHora_Inicial" />
+                    <asp:BoundField DataField="url" HeaderText="url" SortExpression="url" />
                     <asp:BoundField DataField="dataHora_Final" HeaderText="dataHora_Final" SortExpression="dataHora_Final" />
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                 </Columns>
