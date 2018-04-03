@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="YourPELModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ARTIGO">
+          <Key>
+            <PropertyRef Name="idArtigo" />
+          </Key>
+          <Property Name="idArtigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dataHora" Type="date" Nullable="false" />
+          <Property Name="autor" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="titulo" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="texto" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ordemRelevancia" Type="int" Nullable="false" />
+          <Property Name="tema" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="subTema" Type="nvarchar" MaxLength="255" />
+          <Property Name="descricao" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="urlYoutube" Type="nvarchar" MaxLength="255" />
+          <Property Name="ativo" Type="bit" Nullable="false" />
+          <Property Name="url" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YourPEL.dbo.CLIQUES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CLIQUES">
+          <Key>
+            <PropertyRef Name="idClique" />
+            <PropertyRef Name="idCookie" />
+            <PropertyRef Name="dispositivo" />
+            <PropertyRef Name="tipoClique" />
+          </Key>
+          <Property Name="idClique" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="idCookie" Type="int" Nullable="false" />
+          <Property Name="dispositivo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipoClique" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="data" Type="datetime2" Precision="0" />
+        </EntityType>
+        <EntityType Name="DOCUMENTO">
+          <Key>
+            <PropertyRef Name="idDocumento" />
+          </Key>
+          <Property Name="idDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="descricao" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="url" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="tema" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EVENTO">
+          <Key>
+            <PropertyRef Name="idEvento" />
+          </Key>
+          <Property Name="idEvento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="local" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="descricao" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="dataHora_Inicial" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="dataHora_Final" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="url" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAGINA">
+          <Key>
+            <PropertyRef Name="idPagina" />
+          </Key>
+          <Property Name="idPagina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="descricao" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="POST">
+          <Key>
+            <PropertyRef Name="ID_POST" />
+          </Key>
+          <Property Name="ID_POST" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TITULO" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TEXTO" Type="text" Nullable="false" />
+          <Property Name="DATA_HORA" Type="date" Nullable="false" />
+          <Property Name="TEMA" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ATIVO" Type="bit" Nullable="false" />
+          <Property Name="FECHADO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PUBLICACAO">
+          <Key>
+            <PropertyRef Name="idPUBLICACAO" />
+          </Key>
+          <Property Name="idPUBLICACAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="conteudo" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RESPOSTA">
+          <Key>
+            <PropertyRef Name="ID_RESPOSTA" />
+          </Key>
+          <Property Name="ID_RESPOSTA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEXTO" Type="text" Nullable="false" />
+          <Property Name="DATA_HORA" Type="date" Nullable="false" />
+          <Property Name="ID_UTILIZADOR" Type="int" Nullable="false" />
+          <Property Name="ID_POST" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UTILIZADOR">
+          <Key>
+            <PropertyRef Name="ID_UTILIZADOR" />
+          </Key>
+          <Property Name="ID_UTILIZADOR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USERNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PASSWORD" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="TIPO" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YourPEL.dbo.VISITAS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VISITAS">
+          <Key>
+            <PropertyRef Name="dispositivo" />
+          </Key>
+          <Property Name="idCookie" Type="int" />
+          <Property Name="dispositivo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="data" Type="datetime2" Precision="0" />
+        </EntityType>
+        <Association Name="FK_RESPOSTA_POST">
+          <End Role="POST" Type="Self.POST" Multiplicity="1" />
+          <End Role="RESPOSTA" Type="Self.RESPOSTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POST">
+              <PropertyRef Name="ID_POST" />
+            </Principal>
+            <Dependent Role="RESPOSTA">
+              <PropertyRef Name="ID_POST" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESPOSTA_UTILIZADOR">
+          <End Role="UTILIZADOR" Type="Self.UTILIZADOR" Multiplicity="1" />
+          <End Role="RESPOSTA" Type="Self.RESPOSTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UTILIZADOR">
+              <PropertyRef Name="ID_UTILIZADOR" />
+            </Principal>
+            <Dependent Role="RESPOSTA">
+              <PropertyRef Name="ID_UTILIZADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YourPELModelStoreContainer">
+          <EntitySet Name="ARTIGO" EntityType="Self.ARTIGO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOCUMENTO" EntityType="Self.DOCUMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EVENTO" EntityType="Self.EVENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAGINA" EntityType="Self.PAGINA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POST" EntityType="Self.POST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PUBLICACAO" EntityType="Self.PUBLICACAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RESPOSTA" EntityType="Self.RESPOSTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UTILIZADOR" EntityType="Self.UTILIZADOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLIQUES" EntityType="Self.CLIQUES" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CLIQUES].[idClique] AS [idClique], 
+    [CLIQUES].[idCookie] AS [idCookie], 
+    [CLIQUES].[dispositivo] AS [dispositivo], 
+    [CLIQUES].[tipoClique] AS [tipoClique], 
+    [CLIQUES].[data] AS [data]
+    FROM [dbo].[CLIQUES] AS [CLIQUES]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VISITAS" EntityType="Self.VISITAS" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VISITAS].[idCookie] AS [idCookie], 
+    [VISITAS].[dispositivo] AS [dispositivo], 
+    [VISITAS].[data] AS [data]
+    FROM [dbo].[VISITAS] AS [VISITAS]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_RESPOSTA_POST" Association="Self.FK_RESPOSTA_POST">
+            <End Role="POST" EntitySet="POST" />
+            <End Role="RESPOSTA" EntitySet="RESPOSTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESPOSTA_UTILIZADOR" Association="Self.FK_RESPOSTA_UTILIZADOR">
+            <End Role="UTILIZADOR" EntitySet="UTILIZADOR" />
+            <End Role="RESPOSTA" EntitySet="RESPOSTA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YourPELModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ARTIGO">
+          <Key>
+            <PropertyRef Name="idArtigo" />
+          </Key>
+          <Property Name="idArtigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dataHora" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="autor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="titulo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ordemRelevancia" Type="Int32" Nullable="false" />
+          <Property Name="tema" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="subTema" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="urlYoutube" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ativo" Type="Boolean" Nullable="false" />
+          <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DOCUMENTO">
+          <Key>
+            <PropertyRef Name="idDocumento" />
+          </Key>
+          <Property Name="idDocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tema" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EVENTO">
+          <Key>
+            <PropertyRef Name="idEvento" />
+          </Key>
+          <Property Name="idEvento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="local" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descricao" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dataHora_Inicial" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="dataHora_Final" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAGINA">
+          <Key>
+            <PropertyRef Name="idPagina" />
+          </Key>
+          <Property Name="idPagina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="POST">
+          <Key>
+            <PropertyRef Name="ID_POST" />
+          </Key>
+          <Property Name="ID_POST" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TITULO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TEXTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATA_HORA" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TEMA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ATIVO" Type="Boolean" Nullable="false" />
+          <Property Name="FECHADO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="RESPOSTAs" Relationship="Self.FK_RESPOSTA_POST" FromRole="POST" ToRole="RESPOSTA" />
+        </EntityType>
+        <EntityType Name="PUBLICACAO">
+          <Key>
+            <PropertyRef Name="idPUBLICACAO" />
+          </Key>
+          <Property Name="idPUBLICACAO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="conteudo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RESPOSTA">
+          <Key>
+            <PropertyRef Name="ID_RESPOSTA" />
+          </Key>
+          <Property Name="ID_RESPOSTA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEXTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATA_HORA" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_UTILIZADOR" Type="Int32" Nullable="false" />
+          <Property Name="ID_POST" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="POST" Relationship="Self.FK_RESPOSTA_POST" FromRole="RESPOSTA" ToRole="POST" />
+          <NavigationProperty Name="UTILIZADOR" Relationship="Self.FK_RESPOSTA_UTILIZADOR" FromRole="RESPOSTA" ToRole="UTILIZADOR" />
+        </EntityType>
+        <EntityType Name="UTILIZADOR">
+          <Key>
+            <PropertyRef Name="ID_UTILIZADOR" />
+          </Key>
+          <Property Name="ID_UTILIZADOR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TIPO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RESPOSTAs" Relationship="Self.FK_RESPOSTA_UTILIZADOR" FromRole="UTILIZADOR" ToRole="RESPOSTA" />
+        </EntityType>
+        <EntityType Name="CLIQUE">
+          <Key>
+            <PropertyRef Name="idClique" />
+            <PropertyRef Name="idCookie" />
+            <PropertyRef Name="dispositivo" />
+            <PropertyRef Name="tipoClique" />
+          </Key>
+          <Property Name="idClique" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="idCookie" Type="Int32" Nullable="false" />
+          <Property Name="dispositivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoClique" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="VISITA">
+          <Key>
+            <PropertyRef Name="dispositivo" />
+          </Key>
+          <Property Name="idCookie" Type="Int32" />
+          <Property Name="dispositivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+        </EntityType>
+        <Association Name="FK_RESPOSTA_POST">
+          <End Role="POST" Type="Self.POST" Multiplicity="1" />
+          <End Role="RESPOSTA" Type="Self.RESPOSTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POST">
+              <PropertyRef Name="ID_POST" />
+            </Principal>
+            <Dependent Role="RESPOSTA">
+              <PropertyRef Name="ID_POST" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESPOSTA_UTILIZADOR">
+          <End Role="UTILIZADOR" Type="Self.UTILIZADOR" Multiplicity="1" />
+          <End Role="RESPOSTA" Type="Self.RESPOSTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UTILIZADOR">
+              <PropertyRef Name="ID_UTILIZADOR" />
+            </Principal>
+            <Dependent Role="RESPOSTA">
+              <PropertyRef Name="ID_UTILIZADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YourPELcs" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ARTIGOes" EntityType="Self.ARTIGO" />
+          <EntitySet Name="DOCUMENTOes" EntityType="Self.DOCUMENTO" />
+          <EntitySet Name="EVENTOes" EntityType="Self.EVENTO" />
+          <EntitySet Name="PAGINAs" EntityType="Self.PAGINA" />
+          <EntitySet Name="POSTs" EntityType="Self.POST" />
+          <EntitySet Name="PUBLICACAOs" EntityType="Self.PUBLICACAO" />
+          <EntitySet Name="RESPOSTAs" EntityType="Self.RESPOSTA" />
+          <EntitySet Name="UTILIZADORs" EntityType="Self.UTILIZADOR" />
+          <EntitySet Name="CLIQUES" EntityType="Self.CLIQUE" />
+          <EntitySet Name="VISITAS" EntityType="Self.VISITA" />
+          <AssociationSet Name="FK_RESPOSTA_POST" Association="Self.FK_RESPOSTA_POST">
+            <End Role="POST" EntitySet="POSTs" />
+            <End Role="RESPOSTA" EntitySet="RESPOSTAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESPOSTA_UTILIZADOR" Association="Self.FK_RESPOSTA_UTILIZADOR">
+            <End Role="UTILIZADOR" EntitySet="UTILIZADORs" />
+            <End Role="RESPOSTA" EntitySet="RESPOSTAs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YourPELModelStoreContainer" CdmEntityContainer="YourPELcs">
+          <EntitySetMapping Name="ARTIGOes">
+            <EntityTypeMapping TypeName="YourPELModel.ARTIGO">
+              <MappingFragment StoreEntitySet="ARTIGO">
+                <ScalarProperty Name="idArtigo" ColumnName="idArtigo" />
+                <ScalarProperty Name="dataHora" ColumnName="dataHora" />
+                <ScalarProperty Name="autor" ColumnName="autor" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="texto" ColumnName="texto" />
+                <ScalarProperty Name="ordemRelevancia" ColumnName="ordemRelevancia" />
+                <ScalarProperty Name="tema" ColumnName="tema" />
+                <ScalarProperty Name="subTema" ColumnName="subTema" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="urlYoutube" ColumnName="urlYoutube" />
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
+                <ScalarProperty Name="url" ColumnName="url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOCUMENTOes">
+            <EntityTypeMapping TypeName="YourPELModel.DOCUMENTO">
+              <MappingFragment StoreEntitySet="DOCUMENTO">
+                <ScalarProperty Name="idDocumento" ColumnName="idDocumento" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="tema" ColumnName="tema" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EVENTOes">
+            <EntityTypeMapping TypeName="YourPELModel.EVENTO">
+              <MappingFragment StoreEntitySet="EVENTO">
+                <ScalarProperty Name="idEvento" ColumnName="idEvento" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="local" ColumnName="local" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="dataHora_Inicial" ColumnName="dataHora_Inicial" />
+                <ScalarProperty Name="dataHora_Final" ColumnName="dataHora_Final" />
+                <ScalarProperty Name="url" ColumnName="url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAGINAs">
+            <EntityTypeMapping TypeName="YourPELModel.PAGINA">
+              <MappingFragment StoreEntitySet="PAGINA">
+                <ScalarProperty Name="idPagina" ColumnName="idPagina" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POSTs">
+            <EntityTypeMapping TypeName="YourPELModel.POST">
+              <MappingFragment StoreEntitySet="POST">
+                <ScalarProperty Name="ID_POST" ColumnName="ID_POST" />
+                <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+                <ScalarProperty Name="TEXTO" ColumnName="TEXTO" />
+                <ScalarProperty Name="DATA_HORA" ColumnName="DATA_HORA" />
+                <ScalarProperty Name="TEMA" ColumnName="TEMA" />
+                <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
+                <ScalarProperty Name="FECHADO" ColumnName="FECHADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PUBLICACAOs">
+            <EntityTypeMapping TypeName="YourPELModel.PUBLICACAO">
+              <MappingFragment StoreEntitySet="PUBLICACAO">
+                <ScalarProperty Name="idPUBLICACAO" ColumnName="idPUBLICACAO" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="conteudo" ColumnName="conteudo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESPOSTAs">
+            <EntityTypeMapping TypeName="YourPELModel.RESPOSTA">
+              <MappingFragment StoreEntitySet="RESPOSTA">
+                <ScalarProperty Name="ID_RESPOSTA" ColumnName="ID_RESPOSTA" />
+                <ScalarProperty Name="TEXTO" ColumnName="TEXTO" />
+                <ScalarProperty Name="DATA_HORA" ColumnName="DATA_HORA" />
+                <ScalarProperty Name="ID_UTILIZADOR" ColumnName="ID_UTILIZADOR" />
+                <ScalarProperty Name="ID_POST" ColumnName="ID_POST" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UTILIZADORs">
+            <EntityTypeMapping TypeName="YourPELModel.UTILIZADOR">
+              <MappingFragment StoreEntitySet="UTILIZADOR">
+                <ScalarProperty Name="ID_UTILIZADOR" ColumnName="ID_UTILIZADOR" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIQUES">
+            <EntityTypeMapping TypeName="YourPELModel.CLIQUE">
+              <MappingFragment StoreEntitySet="CLIQUES">
+                <ScalarProperty Name="idClique" ColumnName="idClique" />
+                <ScalarProperty Name="idCookie" ColumnName="idCookie" />
+                <ScalarProperty Name="dispositivo" ColumnName="dispositivo" />
+                <ScalarProperty Name="tipoClique" ColumnName="tipoClique" />
+                <ScalarProperty Name="data" ColumnName="data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VISITAS">
+            <EntityTypeMapping TypeName="YourPELModel.VISITA">
+              <MappingFragment StoreEntitySet="VISITAS">
+                <ScalarProperty Name="idCookie" ColumnName="idCookie" />
+                <ScalarProperty Name="dispositivo" ColumnName="dispositivo" />
+                <ScalarProperty Name="data" ColumnName="data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

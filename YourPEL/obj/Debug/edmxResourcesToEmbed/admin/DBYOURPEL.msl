@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="YourPELModelStoreContainer" CdmEntityContainer="YourPELcs">
+    <EntitySetMapping Name="ARTIGOes">
+      <EntityTypeMapping TypeName="YourPELModel.ARTIGO">
+        <MappingFragment StoreEntitySet="ARTIGO">
+          <ScalarProperty Name="idArtigo" ColumnName="idArtigo" />
+          <ScalarProperty Name="dataHora" ColumnName="dataHora" />
+          <ScalarProperty Name="autor" ColumnName="autor" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="ordemRelevancia" ColumnName="ordemRelevancia" />
+          <ScalarProperty Name="tema" ColumnName="tema" />
+          <ScalarProperty Name="subTema" ColumnName="subTema" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="urlYoutube" ColumnName="urlYoutube" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="url" ColumnName="url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCUMENTOes">
+      <EntityTypeMapping TypeName="YourPELModel.DOCUMENTO">
+        <MappingFragment StoreEntitySet="DOCUMENTO">
+          <ScalarProperty Name="idDocumento" ColumnName="idDocumento" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="tema" ColumnName="tema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EVENTOes">
+      <EntityTypeMapping TypeName="YourPELModel.EVENTO">
+        <MappingFragment StoreEntitySet="EVENTO">
+          <ScalarProperty Name="idEvento" ColumnName="idEvento" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="local" ColumnName="local" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="dataHora_Inicial" ColumnName="dataHora_Inicial" />
+          <ScalarProperty Name="dataHora_Final" ColumnName="dataHora_Final" />
+          <ScalarProperty Name="url" ColumnName="url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAGINAs">
+      <EntityTypeMapping TypeName="YourPELModel.PAGINA">
+        <MappingFragment StoreEntitySet="PAGINA">
+          <ScalarProperty Name="idPagina" ColumnName="idPagina" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POSTs">
+      <EntityTypeMapping TypeName="YourPELModel.POST">
+        <MappingFragment StoreEntitySet="POST">
+          <ScalarProperty Name="ID_POST" ColumnName="ID_POST" />
+          <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+          <ScalarProperty Name="TEXTO" ColumnName="TEXTO" />
+          <ScalarProperty Name="DATA_HORA" ColumnName="DATA_HORA" />
+          <ScalarProperty Name="TEMA" ColumnName="TEMA" />
+          <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
+          <ScalarProperty Name="FECHADO" ColumnName="FECHADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUBLICACAOs">
+      <EntityTypeMapping TypeName="YourPELModel.PUBLICACAO">
+        <MappingFragment StoreEntitySet="PUBLICACAO">
+          <ScalarProperty Name="idPUBLICACAO" ColumnName="idPUBLICACAO" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="conteudo" ColumnName="conteudo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RESPOSTAs">
+      <EntityTypeMapping TypeName="YourPELModel.RESPOSTA">
+        <MappingFragment StoreEntitySet="RESPOSTA">
+          <ScalarProperty Name="ID_RESPOSTA" ColumnName="ID_RESPOSTA" />
+          <ScalarProperty Name="TEXTO" ColumnName="TEXTO" />
+          <ScalarProperty Name="DATA_HORA" ColumnName="DATA_HORA" />
+          <ScalarProperty Name="ID_UTILIZADOR" ColumnName="ID_UTILIZADOR" />
+          <ScalarProperty Name="ID_POST" ColumnName="ID_POST" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UTILIZADORs">
+      <EntityTypeMapping TypeName="YourPELModel.UTILIZADOR">
+        <MappingFragment StoreEntitySet="UTILIZADOR">
+          <ScalarProperty Name="ID_UTILIZADOR" ColumnName="ID_UTILIZADOR" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLIQUES">
+      <EntityTypeMapping TypeName="YourPELModel.CLIQUE">
+        <MappingFragment StoreEntitySet="CLIQUES">
+          <ScalarProperty Name="idClique" ColumnName="idClique" />
+          <ScalarProperty Name="idCookie" ColumnName="idCookie" />
+          <ScalarProperty Name="dispositivo" ColumnName="dispositivo" />
+          <ScalarProperty Name="tipoClique" ColumnName="tipoClique" />
+          <ScalarProperty Name="data" ColumnName="data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VISITAS">
+      <EntityTypeMapping TypeName="YourPELModel.VISITA">
+        <MappingFragment StoreEntitySet="VISITAS">
+          <ScalarProperty Name="idCookie" ColumnName="idCookie" />
+          <ScalarProperty Name="dispositivo" ColumnName="dispositivo" />
+          <ScalarProperty Name="data" ColumnName="data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

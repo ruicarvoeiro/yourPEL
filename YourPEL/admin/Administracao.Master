@@ -1,0 +1,120 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Administracao.master.cs" Inherits="YourPEL.admin.Administracao" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server" xmlns="http://www.w3.org/1999/xhtml">
+    <title>Administração YourPEL</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/ckeditor/ckeditor.js"></script>
+    <meta charset="utf-8" />
+    <meta name="google-signin-client_id" content="223918661721-099lhu1nd9ustigfkoktoj3rl3te67bq.apps.googleusercontent.com" />
+    <meta name="google-signin-scope" content="https://www.googleapis.com/auth/analytics.readonly" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <meta charset="utf-8" />
+        <meta name="google-signin-client_id" content="223918661721-099lhu1nd9ustigfkoktoj3rl3te67bq.apps.googleusercontent.com" />
+        <meta name="google-signin-scope" content="https://www.googleapis.com/auth/analytics.readonly" />
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="PaginaPrincipal.aspx">Administração YourPEL</a>
+            </div>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="PaginaPrincipal.aspx">Home<span class="sr-only">(current)</span></a></li>
+                    <li class=""><a href="Utilizadores.aspx">
+                        <asp:Label ID="MenuUtilizadores" runat="server">Utilizadores</asp:Label></a></li>
+                    <li class=""><a href="Artigo.aspx">Artigos</a></li>
+                    <li class=""><a href="Noticia.aspx">Notícias</a></li>
+                    <li class=""><a href="Videos.aspx">Videos</a></li>
+                    <li class=""><a href="Evento.aspx">Eventos</a></li>
+                    <li class=""><a href="Documentos.aspx">Documentos</a></li>
+                    <li class=""><a href="Forum.aspx">Forum</a></li>
+                    <li class=""><a href="Estatistica.aspx">Estatística</a></li>
+                    <li class=""><a href="GestaoGlossario.aspx">Glossário</a></li>
+                    <li class=""><a href="Publicações.aspx">Publicações</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class=""><a href="EditarUtilizador.aspx">Alterar Password</a></li>
+                    <li class=""><a href="Sair.aspx">Sair</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <br />
+    <br />
+    <div class="container">
+        <asp:ContentPlaceHolder ID="BemVindoPH" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="Artigos" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="AdicionarNovoArtigo" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="Noticia" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="AdicionarNovaNoticia" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="Videos" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="AdicionarNovoVideo" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="Eventos" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="AdicionarEvento" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="EditarEvento" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="Estatistica" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="EstatisticaInstagram" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="EstatisticaGoogle" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="Documentos" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="Forum" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="AddPost" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="oTopico" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="EditarArtigos" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="GestaoGlossario" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="EditarVideos" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="EditarNoticia" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="EditarPublicacao" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="Publicações" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="addPublicacao" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="Utilizadores" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="EditarUtilizador" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="GlossarioA" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="GlossarioC" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="GlossarioS" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+</body>
+</html>

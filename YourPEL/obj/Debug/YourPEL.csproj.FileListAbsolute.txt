@@ -1,0 +1,15 @@
+C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\bin\YourPEL.dll.config
+C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\bin\YourPEL.dll
+C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\bin\YourPEL.pdb
+C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\obj\Debug\YourPEL.csproj.CoreCompileInputs.cache
+C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\obj\Debug\YourPEL.dll
+C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\obj\Debug\YourPEL.pdb
+C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\bin\EntityFramework.dll
+C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\bin\EntityFramework.SqlServer.dll
+C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\bin\EntityFramework.xml
+C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\bin\EntityFramework.SqlServer.xml
+C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\obj\Debug\YourPEL.csprojResolveAssemblyReference.cache
+C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\bin\Newtonsoft.Json.dll
+C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\bin\Newtonsoft.Json.xml
