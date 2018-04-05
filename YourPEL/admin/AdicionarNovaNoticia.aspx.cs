@@ -30,7 +30,7 @@ namespace AdminYourPEL
                 
                 string path = Server.MapPath(".") + "\\Imagens\\" + strDate + "_" + titulo.Text + Path.GetExtension(imagem.FileName).ToLower();
                 imagem.SaveAs(path);
-                url = "~\\Imagens\\" + strDate + "_" + titulo.Text + Path.GetExtension(imagem.FileName).ToLower();
+                url = "~admin//Imagens//" + strDate + "_" + titulo.Text + Path.GetExtension(imagem.FileName).ToLower();
             }
 
             SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["YourPELcs"].ToString());

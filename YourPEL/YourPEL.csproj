@@ -1266,6 +1266,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="admin\Imagens\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>

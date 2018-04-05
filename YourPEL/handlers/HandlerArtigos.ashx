@@ -27,7 +27,7 @@ public class ArtigosHandler : IHttpHandler
         try
         {
             SqlCommand cmd = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url]" +
-                " FROM [YourPEL].[dbo].[ARTIGO] WHERE [tema] = 'Artigo' AND [subTema] = (select [subTema] FROM [YourPEL].[dbo].[ARTIGO] WHERE [idArtigo] = "+id+") AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                " FROM [YourPEL].[dbo].[ARTIGO] WHERE [tema] = (select [tema] FROM [YourPEL].[dbo].[ARTIGO] WHERE [idArtigo] = "+id+") AND [subTema] = 'Artigo'  AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             con.Close();
             DataTable dt = new DataTable();
@@ -55,8 +55,8 @@ public class ArtigosHandler : IHttpHandler
      
         try
         {
-            SqlCommand cmd = new SqlCommand("SELECT [autor], [dataHora], [subTema], [url], [titulo], [texto]" +
-                                                " FROM [YourPEL].[dbo].[ARTIGO] WHERE [idArtigo] = " + id + " AND tema = 'Artigo'", con);
+            SqlCommand cmd = new SqlCommand("SELECT [autor], [dataHora], [tema], [url], [titulo], [texto]" +
+                                                " FROM [YourPEL].[dbo].[ARTIGO] WHERE [idArtigo] = " + id + " AND subTema = 'Artigo'", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             con.Close();
             DataTable dt = new DataTable();
@@ -64,9 +64,9 @@ public class ArtigosHandler : IHttpHandler
 
             DateTime date = (DateTime)dt.Rows[0]["dataHora"];
             var temaArtigos = "";
-            if (dt.Rows[0]["subTema"].ToString().Equals("Consumos Nocivos"))
+            if (dt.Rows[0]["tema"].ToString().Equals("Consumos Nocivos"))
                 temaArtigos = "CONSUMOS";
-            else if (dt.Rows[0]["subTema"].ToString() == "Sexualidade")
+            else if (dt.Rows[0]["tema"].ToString() == "Sexualidade")
                 temaArtigos = "SEXUALIDADE";
             else
                 temaArtigos = "ALIMENTACAO";

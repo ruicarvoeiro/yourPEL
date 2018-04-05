@@ -42,7 +42,7 @@ namespace AdminYourPEL
 
                     string path = Server.MapPath(".") + "\\Docs\\" + "id" + novoDoc.idDocumento + "_" + novoDoc.nome + Path.GetExtension(docAFazerUpload.FileName).ToLower();
                     docAFazerUpload.SaveAs(path);
-                    novoDoc.url = "id" + novoDoc.idDocumento + "_" + novoDoc.nome + Path.GetExtension(docAFazerUpload.FileName).ToLower();
+                    novoDoc.url = "admin//Docs//" + "id" + novoDoc.idDocumento + "_" + novoDoc.nome + Path.GetExtension(docAFazerUpload.FileName).ToLower();
 
                     UpdateDocUrl(novoDoc.idDocumento, novoDoc.url); //correção do "." deixado como placeholder na tabela DOCUMENTO                   
 

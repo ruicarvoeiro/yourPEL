@@ -29,7 +29,7 @@
                     <asp:BoundField DataField="ordemRelevancia" HeaderText="ordemRelevancia" SortExpression="ordemRelevancia" />
                     <asp:CheckBoxField DataField="ativo" HeaderText="ativo" SortExpression="ativo" />
                     <asp:BoundField DataField="dataHora" HeaderText="dataHora" SortExpression="dataHora" />
-                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="False"/>
+                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"/>
                        <asp:TemplateField HeaderText="">
                         <ItemTemplate>
                             <asp:Button ID="btnEdit" runat="server" Width="60" Text="Editar" CommandName="EditButton" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
@@ -75,7 +75,7 @@
                     <asp:BoundField DataField="ordemRelevancia" HeaderText="ordemRelevancia" SortExpression="ordemRelevancia" />
                     <asp:CheckBoxField DataField="ativo" HeaderText="ativo" SortExpression="ativo" />
                     <asp:BoundField DataField="dataHora" HeaderText="dataHora" SortExpression="dataHora" />
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="false" />
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                     <asp:TemplateField HeaderText="">
                         <ItemTemplate>
                             <asp:Button ID="btnEdit" runat="server" Width="60" Text="Editar" CommandName="EditButton" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
@@ -121,7 +121,7 @@
                     <asp:BoundField DataField="ordemRelevancia" HeaderText="ordemRelevancia" SortExpression="ordemRelevancia" />
                     <asp:CheckBoxField DataField="ativo" HeaderText="ativo" SortExpression="ativo" />
                     <asp:BoundField DataField="dataHora" HeaderText="dataHora" SortExpression="dataHora" />
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="false" />
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                     <asp:TemplateField HeaderText="">
                         <ItemTemplate>
                             <asp:Button ID="btnEdit" runat="server" Width="60" Text="Editar" CommandName="EditButton" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />

@@ -46,7 +46,7 @@ namespace AdminYourPEL
 
                             string path = Server.MapPath(".") + "\\Imagens\\" + "id" + novoEvento.idEvento + "_" + novoEvento.nome + Path.GetExtension(imagem.FileName).ToLower();
                             imagem.SaveAs(path);
-                            novoEvento.url = "\\Imagens\\" + "id" + novoEvento.idEvento + "_" + novoEvento.nome + Path.GetExtension(imagem.FileName).ToLower();
+                            novoEvento.url = "admin//Imagens//" + "id" + novoEvento.idEvento + "_" + novoEvento.nome + Path.GetExtension(imagem.FileName).ToLower();
               
                             UpdateEventoUrl(novoEvento.idEvento, novoEvento.url); 
 

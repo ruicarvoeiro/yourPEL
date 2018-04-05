@@ -46,8 +46,8 @@ public class HandlerDestaques : IHttpHandler
 
         try
         {
-            SqlCommand cmd = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url], [tema], [subTema], [urlYoutube]" +
-                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([tema] = 'Artigo' OR [tema] = 'SABIAS-QUE' OR [tema] = 'Video') AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+            SqlCommand cmd = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url], [subTema], [tema], [urlYoutube]" +
+                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([subTema] = 'Artigo' OR [subTema] = 'SabiasQue' OR [subTema] = 'Videos') AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             con.Close();
             DataTable dt = new DataTable();
@@ -56,28 +56,42 @@ public class HandlerDestaques : IHttpHandler
             {
                 if (dt.Rows.Count > i)
                 {
-                    if (dt.Rows[i]["tema"].Equals("Artigo"))
+                    if (dt.Rows[i]["subTema"].Equals("Artigo"))
                     {
                         jafoi++;
                     }
                     //NOTA: ver formato que vem da base de dados
                     //tipo frontend ARTIGO, SABIAS-QUE
 
-                    if ((jafoi != 1 && dt.Rows[i]["tema"].Equals("Artigo")) || dt.Rows[i]["tema"].Equals("SABIAS-QUE") || dt.Rows[i]["tema"].Equals("Video"))
+                    if ((jafoi != 1 && dt.Rows[i]["subTema"].Equals("Artigo")) || dt.Rows[i]["subTema"].Equals("SabiasQue") || dt.Rows[i]["subTema"].Equals("Videos"))
                     {
                         var temaArtigos = "";
-                        if (dt.Rows[i]["subTema"].ToString() == "Consumos Nocivos")
+                        if (dt.Rows[i]["tema"].ToString() == "Consumos Nocivos")
                             temaArtigos = "CONSUMOS";
-                        else if (dt.Rows[i]["subTema"].ToString() == "Alimentação")
+                        else if (dt.Rows[i]["tema"].ToString() == "Alimentação")
                             temaArtigos = "ALIMENTACAO";
                         else
                             temaArtigos = "SEXUALIDADE";
+
+                        var qualTipo = "";
+                        if (dt.Rows[i]["subTema"].Equals("SabiasQue"))
+                        {
+                            qualTipo = "SABIAS-QUE";
+                        }
+                        else  if (dt.Rows[i]["subTema"].Equals("Videos"))
+                        {
+                            qualTipo = "VIDEO";
+                        }
+                        else
+                        {
+                            qualTipo = dt.Rows[i]["subTema"].ToString().ToUpper();
+                        }
                         listaDeDestaques.Add(
                             serializer.Serialize(
                                 new
                                 {
                                     tema = temaArtigos,
-                                    tipo = dt.Rows[i]["tema"].ToString().ToUpper(),
+                                    tipo = qualTipo,
                                     imagem = dt.Rows[i]["url"],
                                     titulo = dt.Rows[i]["titulo"],
                                     texto = dt.Rows[i]["descricao"],
@@ -117,17 +131,17 @@ public class HandlerDestaques : IHttpHandler
         //fazer a query de forma a ir buscar o artigo mais recente entre todos os temas
         try
         {
-            SqlCommand cmd = new SqlCommand("select TOP(1) [idArtigo], [titulo], [descricao], [url], [subTema] from [YourPEL].[dbo].[ARTIGO]" +
-                " WHERE [tema] = 'Artigo' AND [ativo] = 'True' ORDER BY [dataHora] DESC;", con);
+            SqlCommand cmd = new SqlCommand("select TOP(1) [idArtigo], [titulo], [descricao], [url], [tema] from [YourPEL].[dbo].[ARTIGO]" +
+                " WHERE [subTema] = 'Artigo' AND [ativo] = 'True' ORDER BY [dataHora] DESC;", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             con.Close();
             DataTable dt = new DataTable();
             da.Fill(dt);
 
             var temaArtigos = "";
-            if (dt.Rows[0]["subTema"].ToString() == "Consumos Nocivos")
+            if (dt.Rows[0]["tema"].ToString() == "Consumos Nocivos")
                 temaArtigos = "CONSUMOS";
-            else if (dt.Rows[0]["subTema"].ToString() == "Alimentação")
+            else if (dt.Rows[0]["tema"].ToString() == "Alimentação")
                 temaArtigos = "ALIMENTACAO";
             else
                 temaArtigos = "SEXUALIDADE";
@@ -164,9 +178,9 @@ public class HandlerDestaques : IHttpHandler
         try
         {
             //Fazer aqui a query à respetiva tabela, de forma a conseguir ter um certo número de videos de todos os temas
-            SqlCommand cmd = new SqlCommand("select [subTema], [urlYoutube], [titulo], [descricao]" +
+            SqlCommand cmd = new SqlCommand("select [tema], [urlYoutube], [titulo], [descricao]" +
                         "from [YourPEL].[dbo].[ARTIGO] " +
-                        "WHERE [tema] = 'Video' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                        "WHERE [subTema] = 'Videos' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             con.Close();
             DataTable dt = new DataTable();
@@ -176,9 +190,9 @@ public class HandlerDestaques : IHttpHandler
                 if (dt.Rows.Count > i)
                 {
                     var temaArtigos = "";
-                    if (dt.Rows[i]["subTema"].ToString() == "Consumos Nocivos")
+                    if (dt.Rows[i]["tema"].ToString() == "Consumos Nocivos")
                         temaArtigos = "CONSUMOS";
-                    else if (dt.Rows[i]["subTema"].ToString() == "Alimentação")
+                    else if (dt.Rows[i]["tema"].ToString() == "Alimentação")
                         temaArtigos = "ALIMENTACAO";
                     else
                         temaArtigos = "SEXUALIDADE";

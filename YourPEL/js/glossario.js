@@ -44,7 +44,7 @@ function montarDefinicoes() {
             myFunction(this);
         }
     };
-    xhttp.open("GET", "./xml/glossario"+tipoTema+".xml", true);
+    xhttp.open("GET", "./admin/glossario"+tipoTema+".xml", true);
     xhttp.send();
 }
 

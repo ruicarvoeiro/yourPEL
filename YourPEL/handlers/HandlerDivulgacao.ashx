@@ -121,7 +121,7 @@ public class HandlerDivulgacao : IHttpHandler
         {
             for (var i = numeroEventosRecebidos; i < numeroEventosRecebidos + numeroDeEventosPedidos; i++)
             {
-                if (dt.Rows[i] != null)
+                if (dt.Rows.Count > i)
                 {
                     String datas = "";
                     DateTime date = (DateTime)dt.Rows[i]["dataHora_Inicial"];

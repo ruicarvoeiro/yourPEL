@@ -58,8 +58,8 @@ public class TemasHandler : IHttpHandler
             {
                 //fazer a query de acordo com o tema, de forma a ir buscar um certo número de artigos e sabias ordenados pela data (de forma decrescente) EXCEPTO o artigo mais recente
                 case "ALIMENTACAO":
-                    SqlCommand cmd = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url], [tema]" +
-                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([tema] = 'Artigo' OR [tema] = 'SABIAS-QUE') AND [subTema] = 'Alimentação' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                    SqlCommand cmd = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url], [subTema]" +
+                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([subTema] = 'Artigo' OR [subTema] = 'SABIAS-QUE') AND [tema] = 'Alimentação' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     con.Close();
                     DataTable dt = new DataTable();
@@ -68,20 +68,30 @@ public class TemasHandler : IHttpHandler
                     {
                         if (dt.Rows.Count > i)
                         {
-                            if (dt.Rows[i]["tema"].Equals("Artigo"))
+                            if (dt.Rows[i]["subTema"].Equals("Artigo"))
                             {
                                 jafoi++;
                             }
                             //NOTA: ver formato que vem da base de dados
                             //tipo frontend ARTIGO, SABIAS-QUE
 
-                            if ((jafoi != 1 && dt.Rows[i]["tema"].Equals("Artigo")) || dt.Rows[i]["tema"].Equals("SABIAS-QUE"))
+                           if ((jafoi != 1 && dt.Rows[i]["subTema"].Equals("Artigo")) || dt.Rows[i]["subTema"].Equals("SabiasQue"))
                             {
+                                var qualTipo = "";
+                                if (dt.Rows[i]["subTema"].Equals("SabiasQue"))
+                                {
+                                    qualTipo = "SABIAS-QUE";
+                                }
+                                else
+                                {
+                                    qualTipo = dt.Rows[i]["subTema"].ToString().ToUpper();
+                                }
+
                                 listaDeDestaques.Add(
                                     serializer.Serialize(
                                         new
                                         {
-                                            tipo = dt.Rows[i]["tema"].ToString().ToUpper(),
+                                            tipo = qualTipo,
                                             imagem = dt.Rows[i]["url"],
                                             titulo = dt.Rows[i]["titulo"],
                                             texto = dt.Rows[i]["descricao"],
@@ -89,7 +99,6 @@ public class TemasHandler : IHttpHandler
                                         }
                                 ));
                             }
-
                         }
                         else
                         {
@@ -100,8 +109,8 @@ public class TemasHandler : IHttpHandler
                     }
                     break;
                 case "SEXUALIDADE":
-                    SqlCommand cmdS = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url], [tema]" +
-                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([tema] = 'Artigo' OR [tema] = 'SABIAS-QUE') AND [subTema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                    SqlCommand cmdS = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url], [subTema]" +
+                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([subTema] = 'Artigo' OR [subTema] = 'SABIAS-QUE') AND [tema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
                     SqlDataAdapter daS = new SqlDataAdapter(cmdS);
                     con.Close();
                     DataTable dtS = new DataTable();
@@ -110,20 +119,30 @@ public class TemasHandler : IHttpHandler
                     {
                         if (dtS.Rows.Count > i)
                         {
-                            if (dtS.Rows[i]["tema"].Equals("Artigo"))
+                            if (dtS.Rows[i]["subTema"].Equals("Artigo"))
                             {
                                 jafoi++;
                             }
                             //NOTA: ver formato que vem da base de dados
                             //tipo frontend ARTIGO, SABIAS-QUE
 
-                            if ((jafoi != 1 && dtS.Rows[i]["tema"].Equals("Artigo")) || dtS.Rows[i]["tema"].Equals("SABIAS-QUE"))
+                            if ((jafoi != 1 && dtS.Rows[i]["subTema"].Equals("Artigo")) || dtS.Rows[i]["subTema"].Equals("SabiasQue"))
                             {
+                                var qualTipo = "";
+                                if (dtS.Rows[i]["subTema"].Equals("SabiasQue"))
+                                {
+                                    qualTipo = "SABIAS-QUE";
+                                }
+                                else
+                                {
+                                    qualTipo = dtS.Rows[i]["subTema"].ToString().ToUpper();
+                                }
+
                                 listaDeDestaques.Add(
                                     serializer.Serialize(
                                         new
                                         {
-                                            tipo = dtS.Rows[i]["tema"].ToString().ToUpper(),
+                                            tipo = qualTipo,
                                             imagem = dtS.Rows[i]["url"],
                                             titulo = dtS.Rows[i]["titulo"],
                                             texto = dtS.Rows[i]["descricao"],
@@ -141,8 +160,8 @@ public class TemasHandler : IHttpHandler
                     //json = serializer.Serialize(listaDeDestaques);
                     break;
                 case "CONSUMOS":
-                    SqlCommand cmdC = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url], [tema]" +
-                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([tema] = 'Artigo' OR [tema] = 'SABIAS-QUE') AND [subTema] = 'Consumos Nocivos' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                    SqlCommand cmdC = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url], [subTema]" +
+                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([subTema] = 'Artigo' OR [subTema] = 'SabiasQue') AND [tema] = 'Consumos Nocivos' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
                     SqlDataAdapter daC = new SqlDataAdapter(cmdC);
                     con.Close();
                     DataTable dtC = new DataTable();
@@ -151,20 +170,30 @@ public class TemasHandler : IHttpHandler
                     {
                         if (dtC.Rows.Count > i)
                         {
-                            if (dtC.Rows[i]["tema"].Equals("Artigo"))
+                            if (dtC.Rows[i]["subTema"].Equals("Artigo"))
                             {
                                 jafoi++;
                             }
                             //NOTA: ver formato que vem da base de dados
                             //tipo frontend ARTIGO, SABIAS-QUE
 
-                            if ((jafoi != 1 && dtC.Rows[i]["tema"].Equals("Artigo")) || dtC.Rows[i]["tema"].Equals("SABIAS-QUE"))
+                            if ((jafoi != 1 && dtC.Rows[i]["subTema"].Equals("Artigo")) || dtC.Rows[i]["subTema"].Equals("SabiasQue"))
                             {
+                                var qualTipo = "";
+                                if (dtC.Rows[i]["subTema"].Equals("SabiasQue"))
+                                {
+                                    qualTipo = "SABIAS-QUE";
+                                }
+                                else
+                                {
+                                    qualTipo = dtC.Rows[i]["subTema"].ToString().ToUpper();
+                                }
+
                                 listaDeDestaques.Add(
                                     serializer.Serialize(
                                         new
                                         {
-                                            tipo = dtC.Rows[i]["tema"].ToString().ToUpper(),
+                                            tipo = qualTipo,
                                             imagem = dtC.Rows[i]["url"],
                                             titulo = dtC.Rows[i]["titulo"],
                                             texto = dtC.Rows[i]["descricao"],
@@ -211,7 +240,7 @@ public class TemasHandler : IHttpHandler
                 case "ALIMENTACAO":
                     SqlCommand cmd = new SqlCommand("select TOP(1) [idArtigo],  [titulo], [descricao], [url]" +
                         "from [YourPEL].[dbo].[ARTIGO]" +
-                        "WHERE [tema] = 'Artigo' AND [ativo] = 'True' AND [subTema] = 'Alimentação' ORDER BY [dataHora] DESC", con);
+                        "WHERE [subTema] = 'Artigo' AND [ativo] = 'True' AND [tema] = 'Alimentação' ORDER BY [dataHora] DESC", con);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     con.Close();
                     DataTable dt = new DataTable();
@@ -232,7 +261,7 @@ public class TemasHandler : IHttpHandler
                 case "SEXUALIDADE":
                     SqlCommand cmdS = new SqlCommand("select TOP(1) [idArtigo],  [titulo], [descricao], [url]" +
                         "from [YourPEL].[dbo].[ARTIGO]" +
-                        " WHERE [tema] = 'Artigo' AND [subTema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                        " WHERE [subTema] = 'Artigo' AND [tema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
                     SqlDataAdapter daS = new SqlDataAdapter(cmdS);
                     con.Close();
                     DataTable dtS = new DataTable();
@@ -253,7 +282,7 @@ public class TemasHandler : IHttpHandler
                 case "CONSUMOS":
                     SqlCommand cmdC = new SqlCommand("select TOP(1) [idArtigo],  [titulo], [descricao], [url]" +
                         "from [YourPEL].[dbo].[ARTIGO]" +
-                        "WHERE [tema] = 'Artigo' AND [subTema] = 'Consumos Nocivos' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                        "WHERE [subTema] = 'Artigo' AND [tema] = 'Consumos Nocivos' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
                     SqlDataAdapter daC = new SqlDataAdapter(cmdC);
                     con.Close();
                     DataTable dtC = new DataTable();
@@ -301,7 +330,7 @@ public class TemasHandler : IHttpHandler
                 case "ALIMENTACAO":
                     SqlCommand cmd = new SqlCommand("select [urlYoutube], [titulo], [descricao]" +
                         "from [YourPEL].[dbo].[ARTIGO] " +
-                        "WHERE [tema] = 'Video' AND [subTema] = 'Alimentação' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                        "WHERE [subTema] = 'Videos' AND [tema] = 'Alimentação' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     con.Close();
                     DataTable dt = new DataTable();
@@ -330,7 +359,7 @@ public class TemasHandler : IHttpHandler
                 case "SEXUALIDADE":
                     SqlCommand cmdS = new SqlCommand("select [urlYoutube], [titulo], [descricao]" +
                         "from [YourPEL].[dbo].[ARTIGO] " +
-                        "WHERE [tema] = 'Video' AND [subTema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                        "WHERE [subTema] = 'Video' AND [tema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
                     SqlDataAdapter daS = new SqlDataAdapter(cmdS);
                     con.Close();
                     DataTable dtS = new DataTable();
@@ -359,7 +388,7 @@ public class TemasHandler : IHttpHandler
                 case "CONSUMOS":
                     SqlCommand cmdC = new SqlCommand("select [urlYoutube], [titulo], [descricao]" +
                         "from [YourPEL].[dbo].[ARTIGO] " +
-                        "WHERE [tema] = 'Video' AND [subTema] = 'Consumos Nocivos' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                        "WHERE [subTema] = 'Video' AND [tema] = 'Consumos Nocivos' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
                     SqlDataAdapter daC = new SqlDataAdapter(cmdC);
                     con.Close();
                     DataTable dtC = new DataTable();
@@ -426,7 +455,7 @@ public class TemasHandler : IHttpHandler
                             new
                             {
                                 nome = dr["nome"],
-                                url = dr["url"]
+                                link = dr["url"]
                             }
                         ));
                 }
@@ -446,7 +475,7 @@ public class TemasHandler : IHttpHandler
                             new
                             {
                                 nome = drS["nome"],
-                                url = drS["url"]
+                                link = drS["url"]
                             }
                         ));
                 }
@@ -466,7 +495,7 @@ public class TemasHandler : IHttpHandler
                             new
                             {
                                 nome = drC["nome"],
-                                url = drC["url"]
+                                link = drC["url"]
                             }
                         ));
                 }
@@ -494,7 +523,7 @@ public class TemasHandler : IHttpHandler
             case "ALIMENTACAO":
                 SqlCommand cmd = new SqlCommand("select [url], [titulo]" +
                     "from [YourPEL].[dbo].[ARTIGO] " +
-                    "WHERE [tema] = 'Links' AND [subTema] = 'Alimentação' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                    "WHERE [subTema] = 'Links' AND [tema] = 'Alimentação' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 con.Close();
                 DataTable dt = new DataTable();
@@ -514,7 +543,7 @@ public class TemasHandler : IHttpHandler
             case "SEXUALIDADE":
                 SqlCommand cmdS = new SqlCommand("select [url], [titulo]" +
                     "from [YourPEL].[dbo].[ARTIGO] " +
-                    "WHERE [tema] = 'Links' AND [subTema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                    "WHERE [subTema] = 'Links' AND [tema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
                 SqlDataAdapter daS = new SqlDataAdapter(cmdS);
                 con.Close();
                 DataTable dtS = new DataTable();
@@ -534,7 +563,7 @@ public class TemasHandler : IHttpHandler
             case "CONSUMOS":
                 SqlCommand cmdC = new SqlCommand("select [url], [titulo]" +
                     "from [YourPEL].[dbo].[ARTIGO] " +
-                    "WHERE [tema] = 'Links' AND [subTema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                    "WHERE [subTema] = 'Links' AND [tema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
                 SqlDataAdapter daC = new SqlDataAdapter(cmdC);
                 con.Close();
                 DataTable dtC = new DataTable();
