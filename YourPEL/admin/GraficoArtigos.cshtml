@@ -1,0 +1,63 @@
+﻿@using System.Data.SqlClient;
+@using System.Configuration;
+@using System.Web.Mvc;
+@using System.Collections.Generic;
+@{
+    List<string> artigos = new List<string>();
+    List<int> visitas = new List<int>();
+    List<string> nomesArtigos = new List<string>();
+
+    using (SqlConnection connection = new SqlConnection())
+    {
+        connection.ConnectionString = ConfigurationManager.ConnectionStrings["YourPELcs"].ToString();
+        connection.Open();
+
+        string sql = "Select Top 10 idClique, COUNT(*) From CLIQUES Where idClique like '3%' Group By idClique Order By COUNT(*) DESC;";
+
+        SqlCommand command = new SqlCommand(sql, connection);
+
+        using (SqlDataReader reader = command.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                artigos.Add(reader.GetString(0));
+                visitas.Add(reader.GetInt32(1));
+            }
+        }
+
+
+
+        for (int i = 0; i < artigos.Count(); i++)
+        {
+
+            if (artigos[i].StartsWith("3000")) { artigos[i] = artigos[i].Substring(4); }
+            else if (artigos[i].StartsWith("300")) { artigos[i] = artigos[i].Substring(3); }
+            else if (artigos[i].StartsWith("30")) { artigos[i] = artigos[i].Substring(2); }
+            else { artigos[i] = artigos[i].Substring(1); }
+
+        }
+
+        for (int i = 0; i < artigos.Count(); i++)
+        {
+            sql = "Select  titulo From ARTIGO Where idArtigo ='" + artigos[i] + "';";
+
+            command = new SqlCommand(sql, connection);
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    nomesArtigos.Add(reader.GetString(0));
+                }
+            }
+
+        }
+    }
+
+    var myChart = new Chart(width: 1200, height: 600, themePath: "~/admin/VanillaPlus.xml")
+.AddSeries(
+    name: "Artigos",
+    xValue: nomesArtigos,
+    yValues: visitas)
+.Write();
+}

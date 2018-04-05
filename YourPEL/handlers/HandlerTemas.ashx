@@ -59,7 +59,7 @@ public class TemasHandler : IHttpHandler
                 //fazer a query de acordo com o tema, de forma a ir buscar um certo número de artigos e sabias ordenados pela data (de forma decrescente) EXCEPTO o artigo mais recente
                 case "ALIMENTACAO":
                     SqlCommand cmd = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url], [subTema]" +
-                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([subTema] = 'Artigo' OR [subTema] = 'SABIAS-QUE') AND [tema] = 'Alimentação' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([subTema] = 'Artigo' OR [subTema] = 'SabiasQue') AND [tema] = 'Alimentação' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     con.Close();
                     DataTable dt = new DataTable();
@@ -110,7 +110,7 @@ public class TemasHandler : IHttpHandler
                     break;
                 case "SEXUALIDADE":
                     SqlCommand cmdS = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url], [subTema]" +
-                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([subTema] = 'Artigo' OR [subTema] = 'SABIAS-QUE') AND [tema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([subTema] = 'Artigo' OR [subTema] = 'SabiasQue') AND [tema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
                     SqlDataAdapter daS = new SqlDataAdapter(cmdS);
                     con.Close();
                     DataTable dtS = new DataTable();

@@ -6,10 +6,8 @@
     <ul class="nav nav-pills">
         <li role="presentation"><a href="addPost.aspx">Novo Post</a></li>
     </ul>
-    <br />
-    <br />
     <form id="DefaultPosts" class="form-group" runat="server">
-        <asp:GridView ID="GridView4" runat="server" 
+        <asp:GridView ID="GridView4" runat="server" Visible="false"
             CssClass="table table-hover table-striped" GridLines="None"
             AutoGenerateColumns="False" DataKeyNames="ID_POST" DataSourceID="SqlDataSource4" OnRowCommand="GridView4_RowCommand">
             <AlternatingRowStyle BackColor="#DCDCDC" />
@@ -30,11 +28,9 @@
                 <asp:ControlParameter ControlID="GridView4" DefaultValue="TRUE" Name="FECHADO" PropertyName="SelectedValue" Type="Boolean" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <br />
-        <br />
         <!------------------------------------------------------------------------------------------------------------------------------------------>
         <asp:GridView ID="GridView1" runat="server" 
-            CssClass="table table-hover table-striped" GridLines="None"
+            CssClass="table table-hover table-striped" GridLines="None" Visible="false"
             AutoGenerateColumns="False" DataKeyNames="ID_POST" DataSourceID="SqlDataSource1" OnRowCommand="GridView1_RowCommand">
             <AlternatingRowStyle BackColor="Gainsboro" />
             <Columns>
@@ -56,7 +52,7 @@
         </asp:SqlDataSource>
         <!------------------------------------------------------------------------------------------------------------------------------------------>
         <asp:GridView ID="GridView2" runat="server" 
-            CssClass="table table-hover table-striped" GridLines="None"
+            CssClass="table table-hover table-striped" GridLines="None" Visible="false"
             AutoGenerateColumns="False" DataKeyNames="ID_POST" DataSourceID="SqlDataSource2" OnRowCommand="GridView2_RowCommand">
             <AlternatingRowStyle BackColor="#DCDCDC" />
             <Columns>
@@ -76,11 +72,9 @@
                 <asp:ControlParameter ControlID="GridView2" DefaultValue="Substâncias Nocivas" Name="TEMA" PropertyName="SelectedValue" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <br />
-        <br />
         <!------------------------------------------------------------------------------------------------------------------------------------------>
         <asp:GridView ID="GridView3" runat="server" 
-            CssClass="table table-hover table-striped" GridLines="None"
+            CssClass="table table-hover table-striped" GridLines="None" Visible="false"
             AutoGenerateColumns="False" DataKeyNames="ID_POST" DataSourceID="SqlDataSource3" OnRowCommand="GridView3_RowCommand">
             <AlternatingRowStyle BackColor="#DCDCDC" />
             <Columns>

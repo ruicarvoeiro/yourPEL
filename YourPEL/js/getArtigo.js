@@ -91,7 +91,7 @@ function montarConteudo(texto, tema) {
             });
         }
     };
-    xhttp.open("GET", "./xml/glossario" + qualXML + ".xml", true);
+    xhttp.open("GET", "./admin/glossario" + qualXML + ".xml", true);
     xhttp.send();
 }//montarConteudo
 

@@ -22,22 +22,13 @@ namespace AdminYourPEL {
         protected global::System.Web.UI.WebControls.TextBox titulo;
         
         /// <summary>
-        /// Controle autor.
+        /// Controle ddtema.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox autor;
-        
-        /// <summary>
-        /// Controle tema.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tema;
+        protected global::System.Web.UI.WebControls.DropDownList ddtema;
         
         /// <summary>
         /// Controle txtVideoDesc.
@@ -65,5 +56,14 @@ namespace AdminYourPEL {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button submeter;
+        
+        /// <summary>
+        /// Controle Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

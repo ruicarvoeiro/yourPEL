@@ -1,0 +1,47 @@
+﻿@using System.Data.SqlClient;
+@using System.Configuration;
+@using System.Web.Mvc;
+@using System.Collections.Generic;
+@{
+    List<string> datas = new List<string>();
+    List<int> visitas = new List<int>();
+
+    using (SqlConnection connection = new SqlConnection())
+    {
+        connection.ConnectionString = ConfigurationManager.ConnectionStrings["YourPELcs"].ToString();
+        connection.Open();
+
+        string sql = "Select Top 10 left(data, 10), COUNT(*) From VISITAS Group By left(data, 10) Order By left(data, 10) DESC;";
+
+        SqlCommand command = new SqlCommand(sql, connection);
+
+        using (SqlDataReader reader = command.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                datas.Add(reader.GetString(0));
+                visitas.Add(reader.GetInt32(1));
+            }
+        }
+    }
+
+    for (int i = 0; i < datas.Count(); i++)
+    {
+        string ano = datas[i].Substring(0, 4);
+        string mes = datas[i].Substring(5, 2);
+        string dia = datas[i].Substring(8);
+
+        datas[i] = dia + "-" + mes + "-" + ano;
+    }
+
+    datas.Reverse();
+    visitas.Reverse();
+
+    var myChart = new Chart(width: 1200, height: 600, themePath: "~/admin/VanillaPlus.xml")
+.AddSeries(
+name: "Visitas",
+xValue: datas,
+yValues: visitas)
+.Write();
+}
+

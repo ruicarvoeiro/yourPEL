@@ -22,15 +22,21 @@ namespace AdminYourPEL
 
             var format = "yyyy-MM-dd";
             var strDate = DateTime.Now.ToString(format);
+            String tema = ddtema.SelectedItem.Text.ToString();
 
             SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["YourPELcs"].ToString());
             db.Open();
             SqlCommand cmd = db.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "INSERT INTO ARTIGO VALUES('" + strDate + "','" + autor.Text + "','" + titulo.Text + "','" + txtVideoDesc.Text + "','" + 1 + "','" + tema.Text + "','" + "" + "','" + "" + "','" + urlYoutube.Text + "','" + false + "','" + "" + "')";
+            cmd.CommandText = "INSERT INTO ARTIGO VALUES('" + strDate + "','" + "" + "','" + titulo.Text + "','" + "" + "','" + 1 + "','" + tema + "','" + "Videos" + "','" + txtVideoDesc.Text + "','" + urlYoutube.Text + "','" + false + "','" + "" + "')";
             cmd.ExecuteNonQuery();
             db.Close();
 
+            Response.Redirect("~/admin/Videos.aspx");
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
             Response.Redirect("~/admin/Videos.aspx");
         }
     }

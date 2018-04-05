@@ -62,6 +62,11 @@
                         <asp:Button ID="Button1" runat="server" class="btn btn-block btn-danger" Text="Adicionar" OnClick="Button1_Click" />
                     </div>
                 </div>
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <asp:Button ID="Button2" runat="server" class="btn btn-block btn-danger" Text="Cancelar" OnClick="Button2_Click" />
+                    </div>
+                </div>
             </div>
         </div>
     </form>

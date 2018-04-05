@@ -28,31 +28,23 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="form-group">
-                        <label>Autor</label>
-                    </div>
-                </div>
-                <div class="col-md-10">
-                    <div class="form-group">
-                        <asp:TextBox ID="autor" CssClass="form-control" runat="server"></asp:TextBox>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="form-group">
                         <label>Tema</label>
                     </div>
                 </div>
                 <div class="col-md-10">
                     <div class="form-group">
-                        <asp:TextBox ID="tema" CssClass="form-control" runat="server" Text="Videos" Enabled="false"></asp:TextBox>
+                        <asp:DropDownList ID="ddtema" CssClass="form-control" runat="server">
+                            <asp:ListItem Selected="True" Value="Alimentação">Alimentação</asp:ListItem>
+                            <asp:ListItem Value="Consumos Nocivos">Consumos Nocivos</asp:ListItem>
+                            <asp:ListItem Value="Sexualidade">Sexualidade</asp:ListItem>
+                        </asp:DropDownList>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-2">
                     <div class="form-group">
-                        <label>Texto</label>
+                        <label>Descricao:</label>
                     </div>
                 </div>
                 <div class="col-md-10">
@@ -73,17 +65,17 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="form-group">
-                    </div>
-                </div>
+
                 <div class="col-md-10">
                     <div class="form-group">
                         <asp:Button ID="submeter" runat="server" class="btn btn-block btn-danger" Text="Publicar" OnClick="submeter_Click" />
                     </div>
                 </div>
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <asp:Button ID="Button1" runat="server" class="btn btn-block btn-danger" Text="Cancelar" OnClick="Button1_Click" />
+                    </div>
+                </div>
             </div>
-        </div>
     </form>
 </asp:Content>

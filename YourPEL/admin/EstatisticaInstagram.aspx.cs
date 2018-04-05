@@ -77,7 +77,7 @@ namespace AdminYourPEL
 
         protected void btnRegressar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Estatistica.aspx",false);
+            Response.Redirect("~/admin/Estatistica.aspx",false);
         }
     }
 }

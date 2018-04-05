@@ -27,25 +27,25 @@
         <div>
             <p class="auto-style3">Visitas diárias nos últimos 10 dias</p>
             <p>
-                <img src="/GraficoVisitas.cshtml" />
+                <img src="/admin/GraficoVisitas.cshtml" />
             </p>
         </div>
 
         <div>
             <p class="auto-style3">Visitas por dispositivo</p>
             <p>
-                <img src="/GraficoDispositivos.cshtml" />
+                <img src="/admin/GraficoDispositivos.cshtml" />
             </p>
         </div>
 
         <div>
             <p class="auto-style3">Visitas por Tema</p>
-            <p><img src="/GraficoTemas.cshtml" /> </p>
+            <p><img src="/admin/GraficoTemas.cshtml" /> </p>
         </div>
 
         <div>
             <p class="auto-style3">10 Artigos mais visitados</p>
-            <p><img src="/GraficoArtigos.cshtml" /> </p>
+            <p><img src="/admin/GraficoArtigos.cshtml" /> </p>
         </div>
 
         <div class="page-header">

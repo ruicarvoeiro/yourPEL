@@ -31,31 +31,6 @@ namespace AdminYourPEL
             var query = db.ARTIGOes;
             return query;
         }
-
-        // The id parameter name should match the DataKeyNames value set on the control
-        /*public void GridViewEditar_UpdateItem(int id)
-        {
-            //Editar
-            using (YourPELEntities db = new YourPELEntities())
-            {
-                ARTIGO item = null;
-                item = db.ARTIGOes.Find(idArtigo);
-
-
-                if (item == null)
-                {
-                    ModelState.AddModelError("", String.Format("O item com id {0} não foi encontrado", idArtigo));
-                    return;
-                }
-
-                TryUpdateModel(item);
-                if (ModelState.IsValid)
-                {
-                    db.SaveChanges();
-                }
-            }
-        }*/
-
         // The id parameter name should match the DataKeyNames value set on the control
         public void GridViewEditar_DeleteItem(int id)
         {
@@ -87,7 +62,7 @@ namespace AdminYourPEL
             if (e.CommandName == "EditButton")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
-                GridViewRow row = gvVids.Rows[index];
+                GridViewRow row = GridView1.Rows[index];
                 String id = row.Cells[0].Text;
                 Response.Redirect("~/admin/EditarVideo.aspx?idArtigo=" + id);
             }
