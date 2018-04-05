@@ -51,8 +51,10 @@
                         var result = "<br><table border= 1 align = center ><tr><th>Legenda do Post</th><th>Likes</th><th>Comments</th></tr>";
 
                         for (var i = 0; i < 10; i++) {
-                            if(data.data[i] != null){
-                                result += "<tr><td>" + data.data[i].caption.text + "</td><td>" + data.data[i].likes.count + "</td><td>" + data.data[i].comments.count + "</td></tr>";
+                            if (data.data[i] != null) {
+                                numPost = i + 1;
+                                caption = data.data[i].caption != null ? data.data[i].caption.text : "Post " + numPost;
+                                result += "<tr><td>" + caption + "</td><td>" + data.data[i].likes.count + "</td><td>" + data.data[i].comments.count + "</td></tr>";
                             }
                         }
                         

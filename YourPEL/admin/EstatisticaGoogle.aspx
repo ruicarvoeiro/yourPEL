@@ -18,7 +18,7 @@
     <title>Página Estatísticas Google Analytics YourPel</title>
     <script src="Scripts/jquery-3.3.1.min.js"></script>
     <script src="Scripts/jquery-3.3.1.js"></script>
-    <meta name="google-signin-client_id" content="223918661721-099lhu1nd9ustigfkoktoj3rl3te67bq.apps.googleusercontent.com"/>
+    <meta name="google-signin-client_id" content="955704158269-gsoosttjtp7g77v3pakijp27ejp8cj59.apps.googleusercontent.com"/>
     <meta name="google-signin-scope" content="https://www.googleapis.com/auth/analytics.readonly"/>
     <style type="text/css">
         .auto-style1 {
@@ -82,7 +82,7 @@
              */
             gapi.analytics.auth.authorize({
                 container: 'embed-api-auth-container',
-                clientid: '223918661721-099lhu1nd9ustigfkoktoj3rl3te67bq.apps.googleusercontent.com'
+                clientid: '955704158269-gsoosttjtp7g77v3pakijp27ejp8cj59.apps.googleusercontent.com'
             });
 
 
