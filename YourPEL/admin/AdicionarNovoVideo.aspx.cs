@@ -28,7 +28,7 @@ namespace AdminYourPEL
             db.Open();
             SqlCommand cmd = db.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "INSERT INTO ARTIGO VALUES('" + strDate + "','" + "" + "','" + titulo.Text + "','" + "" + "','" + 1 + "','" + tema + "','" + "Videos" + "','" + txtVideoDesc.Text + "','" + urlYoutube.Text + "','" + false + "','" + "" + "')";
+            cmd.CommandText = "INSERT INTO ARTIGO VALUES('" + strDate + "','" + autor.Text + "','" + titulo.Text + "','" + "" + "','" + 1 + "','" + tema + "','" + "Videos" + "','" + txtVideoDesc.Text + "','" + urlYoutube.Text + "','" + false + "','" + "" + "')";
             cmd.ExecuteNonQuery();
             db.Close();
 

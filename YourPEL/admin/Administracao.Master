@@ -32,8 +32,7 @@
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="PaginaPrincipal.aspx">Home<span class="sr-only">(current)</span></a></li>
-                    <li class=""><a href="Utilizadores.aspx">
-                        <asp:Label ID="MenuUtilizadores" runat="server">Utilizadores</asp:Label></a></li>
+                    <li ID="MenuUtilizadores" runat="server" class=""><a href="Utilizadores.aspx">Utilizadores</a></li>
                     <li class=""><a href="Artigo.aspx">Artigos</a></li>
                     <li class=""><a href="Noticia.aspx">Notícias</a></li>
                     <li class=""><a href="Videos.aspx">Videos</a></li>

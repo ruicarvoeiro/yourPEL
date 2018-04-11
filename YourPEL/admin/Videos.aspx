@@ -20,10 +20,9 @@
                 CssClass="table table-hover table-striped" GridLines="None"
                 AutoGenerateColumns="False" DataKeyNames="idArtigo" DataSourceID="SqlDataSource1" OnRowCommand="GridViewEditar_RowCommand">
             <Columns>
-
                 <asp:BoundField DataField="dataHora" HeaderText="dataHora" SortExpression="dataHora" />
+                <asp:BoundField DataField="idArtigo" HeaderText="idArtigo" SortExpression="idArtigo" InsertVisible="False" ReadOnly="True" />
                 <asp:BoundField DataField="autor" HeaderText="autor" SortExpression="autor" />
-                <asp:BoundField DataField="idArtigo" HeaderText="idArtigo" Visible="false" InsertVisible="False" ReadOnly="True" SortExpression="idArtigo" />
                 <asp:BoundField DataField="titulo" HeaderText="titulo" SortExpression="titulo" />
                 <asp:BoundField DataField="tema" HeaderText="tema" SortExpression="tema" />
                 <asp:BoundField DataField="urlYoutube" HeaderText="urlYoutube" SortExpression="urlYoutube" />
@@ -32,7 +31,7 @@
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:YourPELcs %>" DeleteCommand="DELETE FROM [ARTIGO] WHERE [idArtigo] = @idArtigo" InsertCommand="INSERT INTO [ARTIGO] ([dataHora], [autor], [titulo], [tema], [urlYoutube], [ativo], [descricao]) VALUES (@dataHora, @autor, @titulo, @tema, @urlYoutube, @ativo, @descricao)" SelectCommand="SELECT [dataHora], [idArtigo], [autor], [titulo], [tema], [urlYoutube], [ativo], [descricao] FROM [ARTIGO]" UpdateCommand="UPDATE [ARTIGO] SET [dataHora] = @dataHora, [autor] = @autor, [titulo] = @titulo, [tema] = @tema, [urlYoutube] = @urlYoutube, [ativo] = @ativo, [descricao] = @descricao WHERE [idArtigo] = @idArtigo">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:YourPELcs %>" DeleteCommand="DELETE FROM [ARTIGO] WHERE [idArtigo] = @idArtigo" InsertCommand="INSERT INTO [ARTIGO] ([dataHora], [autor], [titulo], [tema], [urlYoutube], [ativo], [descricao]) VALUES (@dataHora, @autor, @titulo, @tema, @urlYoutube, @ativo, @descricao)" SelectCommand="SELECT [dataHora], [idArtigo], [autor], [titulo], [tema], [urlYoutube], [ativo], [descricao] FROM [ARTIGO] WHERE ([subTema] LIKE '%' + @subTema + '%')" UpdateCommand="UPDATE [ARTIGO] SET [dataHora] = @dataHora, [autor] = @autor, [titulo] = @titulo, [tema] = @tema, [urlYoutube] = @urlYoutube, [ativo] = @ativo, [descricao] = @descricao WHERE [idArtigo] = @idArtigo">
             <DeleteParameters>
                 <asp:Parameter Name="idArtigo" Type="Int32" />
             </DeleteParameters>
@@ -45,6 +44,9 @@
                 <asp:Parameter Name="ativo" Type="Boolean" />
                 <asp:Parameter Name="descricao" Type="String" />
             </InsertParameters>
+            <SelectParameters>
+                <asp:ControlParameter ControlID="GridView1" DefaultValue="Video" Name="subTema" PropertyName="SelectedValue" Type="String" />
+            </SelectParameters>
             <UpdateParameters>
                 <asp:Parameter DbType="Date" Name="dataHora" />
                 <asp:Parameter Name="autor" Type="String" />

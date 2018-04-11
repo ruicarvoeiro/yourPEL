@@ -118,9 +118,9 @@
     <Content Include="sobre.html" />
     <Content Include="substancias.html" />
     <Content Include="topico.html" />
-    <Content Include="xml\glossarioA.xml" />
-    <Content Include="xml\glossarioC.xml" />
-    <Content Include="xml\glossarioS.xml" />
+    <Content Include="admin\glossarioA.xml" />
+    <Content Include="admin\glossarioC.xml" />
+    <Content Include="admin\glossarioS.xml" />
     <EntityDeploy Include="admin\DBYOURPEL.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBYOURPEL.Designer.cs</LastGenOutput>
@@ -1298,6 +1298,7 @@
     <Folder Include="admin\Imagens\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="xml\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

@@ -22,6 +22,15 @@ namespace AdminYourPEL {
         protected global::System.Web.UI.WebControls.TextBox titulo;
         
         /// <summary>
+        /// Controle autor.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox autor;
+        
+        /// <summary>
         /// Controle ddtema.
         /// </summary>
         /// <remarks>
