@@ -141,10 +141,13 @@ function linkXML(tema) {
 }//verificarPalavras*/
 
 function verificarPalavras(texto){
+    //texto = $.parseHTML(texto);
+    //texto = texto.text();
     for (var i = 0; i < definicoes.length; i++) {
         var procurar = definicoes[i];
-        var expressao = '(?<!<mark class="hoverDefin">)';
-        var regEx = new RegExp(expressao + procurar, "ig");
+        var expressao = `(?:(?!<mark class="hoverDefin"))`;
+        var exp = expressao + procurar;
+        var regEx = new RegExp(exp, "igu");
         var replacement = `<mark class="hoverDefin" title="${contdef[i]}">` + "$&" + "</mark>";
         texto = texto.replace(regEx, replacement);
     }

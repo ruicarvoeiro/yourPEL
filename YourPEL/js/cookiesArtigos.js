@@ -52,7 +52,7 @@ function visita() {
             success: function (result) {
                 alert("ok");
             }
-        });*/
+        });
 
         var date = new Date();
         date.setTime(date.getTime() + (3600 * 1000));

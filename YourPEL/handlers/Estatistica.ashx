@@ -7,12 +7,12 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace WebApplication2.api.handler
-{
+//namespace WebApplication2.api.handler
+//{
     /// <summary>
     /// Handler que recebe 
     /// </summary>
-    public class handlerEstatistica : IHttpHandler
+    public class Estatistica : IHttpHandler
     {
 
         public void ProcessRequest(HttpContext context)
@@ -35,24 +35,26 @@ namespace WebApplication2.api.handler
             long idCookie = Convert.ToInt64(context.Request["id"]);
             string dispositivo = context.Request["dispositivo"];
             string sql = "";
+            var format = "yyyy-MM-dd";
+            var strDate = DateTime.Now.ToString(format);
 
             using (SqlConnection connection = new SqlConnection())
             {
                 connection.ConnectionString = ConfigurationManager.ConnectionStrings["YourPELcs"].ToString();
-                connection.Open();             
+                connection.Open();
 
                 if (tipo == "visita")
                 {
-                    sql = "Insert into VISITAS(idCookie, dispositivo) values ('" + idCookie + "', '" + dispositivo + "');";
+                    sql = "Insert into VISITAS(idCookie, dispositivo, data) values ('" + idCookie + "', '" + dispositivo + "', '" + strDate + "');";
                     SqlCommand command = new SqlCommand(sql, connection);
                     command.ExecuteNonQuery();
-                } 
-                else if(tipo == "tema")
+                }
+                else if (tipo == "tema")
                 {
                     string tema = context.Request["tema"];
                     int idClique;
 
-                    if(tema == "alimentacao")
+                    if (tema == "alimentacao")
                     {
                         idClique = 20001;
                     }
@@ -65,7 +67,7 @@ namespace WebApplication2.api.handler
                         idClique = 20003;
                     }
 
-                    sql = "Insert into CLIQUES(idClique, idCookie, dispositivo, tipoClique) values ('" + idClique + "', '" + idCookie + "', '" + dispositivo + "', 'tema');";
+                    sql = "Insert into CLIQUES(idClique, idCookie, dispositivo, tipoClique, data) values ('" + idClique + "', '" + idCookie + "', '" + dispositivo + "', 'tema', '" + strDate + "');";
                     SqlCommand command = new SqlCommand(sql, connection);
                     command.ExecuteNonQuery();
                 }
@@ -73,7 +75,7 @@ namespace WebApplication2.api.handler
                 {
                     string idArtigo = context.Request["artigo"];
 
-                    if(idArtigo.Length <2)
+                    if (idArtigo.Length < 2)
                     {
                         idArtigo = "3000" + idArtigo;
                     }
@@ -90,7 +92,7 @@ namespace WebApplication2.api.handler
                         idArtigo = "3" + idArtigo;
                     }
 
-                    sql = "Insert into CLIQUES(idClique, idCookie, dispositivo, tipoClique) values ('" + idArtigo + "', '" + idCookie + "', '" + dispositivo + "', 'artigo');";
+                    sql = "Insert into CLIQUES(idClique, idCookie, dispositivo, tipoClique, data) values ('" + idArtigo + "', '" + idCookie + "', '" + dispositivo + "', 'artigo', '" + strDate + "');";
                     SqlCommand command = new SqlCommand(sql, connection);
                     command.ExecuteNonQuery();
                 }
@@ -105,4 +107,4 @@ namespace WebApplication2.api.handler
             }
         }
     }
-}
+//}

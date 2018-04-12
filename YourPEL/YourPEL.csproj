@@ -116,7 +116,7 @@
     <Content Include="parceiros.html" />
     <Content Include="sexualidade.html" />
     <Content Include="sobre.html" />
-    <Content Include="substancias.html" />
+    <Content Include="consumos.html" />
     <Content Include="topico.html" />
     <Content Include="admin\glossarioA.xml" />
     <Content Include="admin\glossarioC.xml" />

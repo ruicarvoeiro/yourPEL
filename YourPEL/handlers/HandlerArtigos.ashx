@@ -27,7 +27,7 @@ public class ArtigosHandler : IHttpHandler
         try
         {
             SqlCommand cmd = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url]" +
-                " FROM [YourPEL].[dbo].[ARTIGO] WHERE [tema] = (select [tema] FROM [YourPEL].[dbo].[ARTIGO] WHERE [idArtigo] = "+id+") AND [subTema] = 'Artigo'  AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                " FROM [YourPEL].[dbo].[ARTIGO] WHERE [tema] = (select [tema] FROM [YourPEL].[dbo].[ARTIGO] WHERE [idArtigo] = " + id + ") AND [subTema] = 'Artigo'  AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             con.Close();
             DataTable dt = new DataTable();
@@ -52,7 +52,7 @@ public class ArtigosHandler : IHttpHandler
 
         }
 
-     
+
         try
         {
             SqlCommand cmd = new SqlCommand("SELECT [autor], [dataHora], [tema], [url], [titulo], [texto]" +
@@ -71,7 +71,7 @@ public class ArtigosHandler : IHttpHandler
             else
                 temaArtigos = "ALIMENTACAO";
 
-            String texto = dt.Rows[0]["texto"].ToString();
+            String texto =toUTF8(dt.Rows[0]["texto"].ToString());
 
             var json = serializer.Serialize(
                 new
@@ -103,5 +103,12 @@ public class ArtigosHandler : IHttpHandler
             return false;
         }
     }
+
+    public String toUTF8(String str)
+    {
+        return HttpContext.Current.Server.HtmlDecode(str);
+    }
+
+
 
 }

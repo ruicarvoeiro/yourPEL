@@ -2473,7 +2473,9 @@
                 text-align: center;
             }
 
-            .artigo .conteudo p {
+         
+
+            .artigo .conteudo :not(mark) {
                 width: 42.4%;
                 margin: 0 auto;
                 display: block;
@@ -2482,6 +2484,11 @@
                 font-size: 1.8vw;
                 line-height: 2.6vw;
                 text-align: left;
+            }
+
+            .artigo .conteudo li {
+                display: list-item;
+                width: 70%;
             }
 
             .artigo .conteudo img{
