@@ -118,7 +118,7 @@
             </div>
 <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
     <script type="text/javascript">
-        CKEDITOR.replace('<%=idTbResponder.ClientID %>', { filebrowserImageUploadUrl: '/Handlers/UploadImagens.ashx' });
+        CKEDITOR.replace('<%=idTbResponder.ClientID %>', { filebrowserImageUploadUrl: '/handlers/UploadImagens.ashx' });
             </script>
             <br />
         </div>

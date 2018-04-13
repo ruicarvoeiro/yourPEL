@@ -129,7 +129,7 @@
             type="text/javascript" src="Scripts/ckeditor/ckeditor.js"></>
     <script src="Scripts/jquery-3.3.1.js"></script>
     <script type="text/javascript">
-        CKEDITOR.replace('<%=txtCkEditor.ClientID %>', { filebrowserImageUploadUrl: '~/Handlers/UploadImagens.ashx' });
+        CKEDITOR.replace('<%=txtCkEditor.ClientID %>', { filebrowserImageUploadUrl: '/handlers/UploadImagens.ashx' });
     </script>
 
 </asp:Content>
