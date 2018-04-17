@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="form-group">
-                        <label>Titulo: </label>
+                        <asp:Label ID="LabelTitulo" Font-Bold="true" runat="server" Text="Título"></asp:Label>
                     </div>
                 </div>
                 <div class="col-md-10">
@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="form-group">
-                        <label>Autor</label>
+                        <asp:Label ID="Label1" Font-Bold="true" runat="server" Text="Autor"></asp:Label>
                     </div>
                 </div>
                 <div class="col-md-10">
@@ -63,8 +63,8 @@
                 </div>
                 <div class="col-md-10">
                     <div class="form-group">
-                        <asp:DropDownList ID="ddsubTema" CssClass="form-control" runat="server">
-                            <asp:ListItem Selected="True" Value="Artigo">Artigos</asp:ListItem>
+                        <asp:DropDownList OnSelectedIndexChanged="ddsubTema_SelectedIndexChanged" AutoPostBack="True"  ID="ddsubTema" CssClass="form-control" runat="server">
+                            <asp:ListItem Value="Artigo">Artigos</asp:ListItem>
                             <asp:ListItem Value="SabiasQue">Sabias Que?</asp:ListItem>
                             <asp:ListItem Value="Links">Links Úteis</asp:ListItem>
                         </asp:DropDownList>
@@ -74,19 +74,19 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="form-group">
-                        <label>Descrição</label>
+                        <asp:Label ID="Label2" Font-Bold="true" runat="server" Text="Descrição"></asp:Label>
                     </div>
                 </div>
                 <div class="col-md-10">
                     <div class="form-group">
-                        <asp:TextBox ID="descricao" CssClass="form-control" TextMode="MultiLine" runat="server"/>
+                        <asp:TextBox ID="descricao" CssClass="form-control" MaxLength="99" runat="server"/>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-2">
                     <div class="form-group">
-                        <label>Imagem: </label>
+                       <asp:Label ID="LabelImagens" Font-Bold="true" runat="server" Text="Imagem"></asp:Label>
                     </div>
                 </div>
                 <div class="col-md-10">
@@ -98,7 +98,7 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="form-group">
-                        <label>Texto</label>
+                        <asp:Label ID="LabelTexto" Font-Bold="true" runat="server" Text="Texto"></asp:Label>
                     </div>
                 </div>
                 <div class="col-md-10">
@@ -125,8 +125,7 @@
             </div>
         </div>
     </form>
-        <
-            type="text/javascript" src="Scripts/ckeditor/ckeditor.js"></>
+        <type="text/javascript" src="Scripts/ckeditor/ckeditor.js"></>
     <script src="Scripts/jquery-3.3.1.js"></script>
     <script type="text/javascript">
         CKEDITOR.replace('<%=txtCkEditor.ClientID %>', { filebrowserImageUploadUrl: '/handlers/UploadImagens.ashx' });

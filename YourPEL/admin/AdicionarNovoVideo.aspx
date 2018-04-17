@@ -61,7 +61,7 @@
                 </div>
                 <div class="col-md-10">
                     <div class="form-group">
-                        <asp:TextBox ID="txtVideoDesc" CssClass="form-control" TextMode="MultiLine" runat="server" />
+                        <asp:TextBox ID="txtVideoDesc" CssClass="form-control" MaxLength="99" runat="server" />
                     </div>
                 </div>
             </div>

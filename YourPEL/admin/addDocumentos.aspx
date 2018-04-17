@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-md-5">
                         <div class="form-group">
-                            <asp:TextBox class="form-control" ID="txtDescricaoDocumento" runat="server" />
+                            <asp:TextBox class="form-control" MaxLength="99" ID="txtDescricaoDocumento" runat="server" />
                         </div>
                     </div>
                 </div>

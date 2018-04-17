@@ -47,7 +47,7 @@ public class HandlerDestaques : IHttpHandler
         try
         {
             SqlCommand cmd = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url], [subTema], [tema], [urlYoutube]" +
-                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([subTema] = 'Artigo' OR [subTema] = 'SabiasQue' OR [subTema] = 'Videos') AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([subTema] = 'Artigo' OR [subTema] = 'SabiasQue' OR [subTema] = 'Videos') AND [ativo] = 'True' ORDER BY [ordemRelevancia] DESC, [dataHora] DESC", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             con.Close();
             DataTable dt = new DataTable();
@@ -132,7 +132,7 @@ public class HandlerDestaques : IHttpHandler
         try
         {
             SqlCommand cmd = new SqlCommand("select TOP(1) [idArtigo], [titulo], [descricao], [url], [tema] from [YourPEL].[dbo].[ARTIGO]" +
-                " WHERE [subTema] = 'Artigo' AND [ativo] = 'True' ORDER BY [dataHora] DESC;", con);
+                " WHERE [subTema] = 'Artigo' AND [ativo] = 'True' ORDER BY [ordemRelevancia] DESC, [dataHora] DESC;", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             con.Close();
             DataTable dt = new DataTable();

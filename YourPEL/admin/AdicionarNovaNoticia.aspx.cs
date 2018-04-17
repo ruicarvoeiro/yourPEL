@@ -27,10 +27,10 @@ namespace AdminYourPEL
             string url = "";
             if (imagem.HasFile)
             {
-                
+
                 string path = Server.MapPath(".") + "\\Imagens\\" + strDate + "_" + titulo.Text + Path.GetExtension(imagem.FileName).ToLower();
                 imagem.SaveAs(path);
-                url = "~admin//Imagens//" + strDate + "_" + titulo.Text + Path.GetExtension(imagem.FileName).ToLower();
+                url = "admin//Imagens//" + strDate + "_" + titulo.Text + Path.GetExtension(imagem.FileName).ToLower();
             }
 
             SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["YourPELcs"].ToString());
@@ -38,7 +38,7 @@ namespace AdminYourPEL
             SqlCommand cmd = db.CreateCommand();
             cmd.CommandType = CommandType.Text;
             string encodedText = Server.HtmlEncode(txtCkEditor.Text);
-            cmd.CommandText = "INSERT INTO ARTIGO VALUES('" + strDate + "','" + autor.Text + "','" + titulo.Text + "','" + txtCkEditor.Text + "','" + 1 + "','" + tema.Text + "','" + "" + "','" + descricao.Text + "','" + "" + "','" + true + "','" + url + "')";
+            cmd.CommandText = "INSERT INTO ARTIGO VALUES('" + strDate + "','" + autor.Text + "','" + titulo.Text + "','" + txtCkEditor.Text + "',0,'" + tema.Text + "','" + "" + "','" + descricao.Text + "','" + "" + "','" + true + "','" + url + "')";
             cmd.ExecuteNonQuery();
             db.Close();
 

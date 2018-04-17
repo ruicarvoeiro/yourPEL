@@ -47,5 +47,10 @@ namespace AdminYourPEL
                 Response.Redirect("~/admin/EditarArtigos.aspx?idArtigo=" + id);
             }
         }
+
+        protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

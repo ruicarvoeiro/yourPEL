@@ -21,7 +21,7 @@ namespace AdminYourPEL
 
         }
 
-        
+
         protected void submeter_Click(object sender, EventArgs e)
         {
 
@@ -41,7 +41,7 @@ namespace AdminYourPEL
             SqlCommand cmd = db.CreateCommand();
             cmd.CommandType = CommandType.Text;
             string encodedText = Server.HtmlEncode(txtCkEditor.Text);
-            cmd.CommandText = "INSERT INTO ARTIGO VALUES('"+strDate+"','"+autor.Text+"','"+titulo.Text+ "','" + txtCkEditor.Text + "','"+1+"','"+ddtema.Text+"','"+ ddsubTema.Text+ "','" + descricao.Text + "','" + "" + "','" + false+ "','" + url + "')";
+            cmd.CommandText = "INSERT INTO ARTIGO VALUES('" + strDate + "','" + autor.Text + "','" + titulo.Text + "','" + txtCkEditor.Text + "',0,'" + ddtema.Text + "','" + ddsubTema.Text + "','" + descricao.Text + "','" + "" + "','" + false + "','" + url + "')";
             cmd.ExecuteNonQuery();
             db.Close();
 
@@ -51,6 +51,46 @@ namespace AdminYourPEL
         protected void sair_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/admin/Artigo.aspx");
+        }
+
+        protected void ddsubTema_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String cena = ddsubTema.Items[ddsubTema.SelectedIndex].Text;
+            if (cena == "Sabias Que?")
+            {
+                Label2.Text = "Descrição";
+                LabelImagens.Visible = false;
+                imagem.Visible = false;
+                LabelTexto.Visible = false;
+                txtCkEditor.Visible = false;
+                titulo.Visible = false;
+                LabelTitulo.Visible = false;
+
+            }
+            else if (cena == "Links Úteis")
+            {
+                titulo.Visible = true;
+                LabelTitulo.Visible = true;
+                LabelImagens.Visible = false;
+                imagem.Visible = false;
+                LabelTexto.Visible = false;
+                txtCkEditor.Visible = false;
+                Label1.Visible = false;
+                autor.Visible = false;
+                Label2.Text = "URL";
+            }
+            else if (cena == "Artigos")
+            {
+                Label2.Text = "Descrição";
+                Label1.Visible = true;
+                autor.Visible = true;
+                LabelImagens.Visible = true;
+                imagem.Visible = true;
+                LabelTexto.Visible = true;
+                txtCkEditor.Visible = true;
+                titulo.Visible = true;
+                LabelTitulo.Visible = true;
+            }
         }
     }
 }

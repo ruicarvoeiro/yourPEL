@@ -110,7 +110,7 @@ public class TemasHandler : IHttpHandler
                     break;
                 case "SEXUALIDADE":
                     SqlCommand cmdS = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url], [subTema]" +
-                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([subTema] = 'Artigo' OR [subTema] = 'SabiasQue') AND [tema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([subTema] = 'Artigo' OR [subTema] = 'SabiasQue') AND [tema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [ordemRelevancia] DESC, [dataHora] DESC", con);
                     SqlDataAdapter daS = new SqlDataAdapter(cmdS);
                     con.Close();
                     DataTable dtS = new DataTable();
@@ -161,7 +161,7 @@ public class TemasHandler : IHttpHandler
                     break;
                 case "CONSUMOS":
                     SqlCommand cmdC = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url], [subTema]" +
-                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([subTema] = 'Artigo' OR [subTema] = 'SabiasQue') AND [tema] = 'Consumos Nocivos' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                                                    " FROM [YourPEL].[dbo].[ARTIGO] WHERE ([subTema] = 'Artigo' OR [subTema] = 'SabiasQue') AND [tema] = 'Consumos Nocivos' AND [ativo] = 'True' ORDER BY [ordemRelevancia] DESC, [dataHora] DESC", con);
                     SqlDataAdapter daC = new SqlDataAdapter(cmdC);
                     con.Close();
                     DataTable dtC = new DataTable();
@@ -261,7 +261,7 @@ public class TemasHandler : IHttpHandler
                 case "SEXUALIDADE":
                     SqlCommand cmdS = new SqlCommand("select TOP(1) [idArtigo],  [titulo], [descricao], [url]" +
                         "from [YourPEL].[dbo].[ARTIGO]" +
-                        " WHERE [subTema] = 'Artigo' AND [tema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                        " WHERE [subTema] = 'Artigo' AND [tema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [ordemRelevancia] DESC, [dataHora] DESC", con);
                     SqlDataAdapter daS = new SqlDataAdapter(cmdS);
                     con.Close();
                     DataTable dtS = new DataTable();
@@ -282,7 +282,7 @@ public class TemasHandler : IHttpHandler
                 case "CONSUMOS":
                     SqlCommand cmdC = new SqlCommand("select TOP(1) [idArtigo],  [titulo], [descricao], [url]" +
                         "from [YourPEL].[dbo].[ARTIGO]" +
-                        "WHERE [subTema] = 'Artigo' AND [tema] = 'Consumos Nocivos' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                        "WHERE [subTema] = 'Artigo' AND [tema] = 'Consumos Nocivos' AND [ativo] = 'True' ORDER BY [ordemRelevancia] DESC, [dataHora] DESC", con);
                     SqlDataAdapter daC = new SqlDataAdapter(cmdC);
                     con.Close();
                     DataTable dtC = new DataTable();

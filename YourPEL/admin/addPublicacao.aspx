@@ -37,7 +37,7 @@
                     </div>
                     <div class="col-md-10">
                         <div class="form-group">
-                            <asp:TextBox ID="conteudoo" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="conteudoo" MaxLength="99" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                     </div>
                 </div>
