@@ -306,14 +306,19 @@ namespace AdminYourPEL
             HttpContext.Current.Response.Clear();
             HttpContext.Current.Response.ClearHeaders();
             HttpContext.Current.Response.ClearContent();
+            HttpContext.Current.Response.Charset = "UTF-8";
             HttpContext.Current.Response.AddHeader("content-disposition", attachment);
             HttpContext.Current.Response.ContentType = "text/csv";
             HttpContext.Current.Response.AddHeader("Pragma", "public");
 
             HttpContext.Current.Response.Write(sw.ToString());
-
             HttpContext.Current.Response.End();
 
+        }
+
+        public String toUTF8(String str)
+        {
+            return HttpContext.Current.Server.HtmlDecode(str);
         }
     }
 }

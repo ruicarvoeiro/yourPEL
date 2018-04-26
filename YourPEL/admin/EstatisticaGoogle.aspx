@@ -51,7 +51,7 @@
 
     <form id="form1" runat="server">
         <div class="auto-style3">
-           <p> <asp:Button runat="server" ID="btnRegresso" Text="Regressar à Página Inicial de Estatística" PostBackUrl="~/Estatistica.aspx"/> </p>
+           <p> <asp:Button runat="server" ID="btnRegresso" Text="Regressar à Página Inicial de Estatística" PostBackUrl="~/admin/Estatistica.aspx"/> </p>
         </div>
 
     <!-- Containers para graficos -->
