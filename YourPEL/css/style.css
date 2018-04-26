@@ -1156,7 +1156,7 @@
                     opacity: 0.9;
                     margin: auto;
                     padding: 0;
-                    max-height: 20vh;
+                    max-height: 30vh;
                     object-fit: cover;
                     object-position: center;
                 }
@@ -2486,6 +2486,7 @@
                 text-align: left;
             }
 
+
             .artigo .conteudo li {
                 display: list-item;
                 width: 70%;
@@ -2493,6 +2494,7 @@
 
             .artigo .conteudo img{
                 width: 100%;
+                max-width: 80%;
                 margin-top: 8%;
             }
 
@@ -3078,6 +3080,12 @@
 
                 .destaques .listaDestaques {
                     margin: 0 auto;
+                }
+
+                .destaques img {
+                    max-height: 30vh;
+                    object-fit: cover;
+                    object-position: center;
                 }
 
                 .destaques .card {

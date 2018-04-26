@@ -14,6 +14,9 @@ namespace AdminYourPEL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            cena.Visible = false;
+            autor.Visible = false;
+            autor.Text = "sem_autor";
 
         }
 
@@ -28,6 +31,7 @@ namespace AdminYourPEL
             db.Open();
             SqlCommand cmd = db.CreateCommand();
             cmd.CommandType = CommandType.Text;
+            autor.Text = "sem_autor";
             cmd.CommandText = "INSERT INTO ARTIGO VALUES('" + strDate + "','" + autor.Text + "','" + titulo.Text + "','" + "" + "','" + 1 + "','" + tema + "','" + "Videos" + "','" + txtVideoDesc.Text + "','" + urlYoutube.Text + "','" + false + "','" + "" + "')";
             cmd.ExecuteNonQuery();
             db.Close();

@@ -359,7 +359,7 @@ public class TemasHandler : IHttpHandler
                 case "SEXUALIDADE":
                     SqlCommand cmdS = new SqlCommand("select [urlYoutube], [titulo], [descricao]" +
                         "from [YourPEL].[dbo].[ARTIGO] " +
-                        "WHERE [subTema] = 'Video' AND [tema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                        "WHERE [subTema] = 'Videos' AND [tema] = 'Sexualidade' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
                     SqlDataAdapter daS = new SqlDataAdapter(cmdS);
                     con.Close();
                     DataTable dtS = new DataTable();
@@ -388,7 +388,7 @@ public class TemasHandler : IHttpHandler
                 case "CONSUMOS":
                     SqlCommand cmdC = new SqlCommand("select [urlYoutube], [titulo], [descricao]" +
                         "from [YourPEL].[dbo].[ARTIGO] " +
-                        "WHERE [subTema] = 'Video' AND [tema] = 'Consumos Nocivos' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
+                        "WHERE [subTema] = 'Videos' AND [tema] = 'Consumos Nocivos' AND [ativo] = 'True' ORDER BY [dataHora] DESC", con);
                     SqlDataAdapter daC = new SqlDataAdapter(cmdC);
                     con.Close();
                     DataTable dtC = new DataTable();
@@ -534,8 +534,8 @@ public class TemasHandler : IHttpHandler
                         serializer.Serialize(
                             new
                             {
-                                url = dt.Rows[0]["url"],
-                                nome = dt.Rows[0]["titulo"],
+                                url = dr["url"],
+                                nome = dr["titulo"],
                             }
                         ));
                 }
@@ -554,8 +554,8 @@ public class TemasHandler : IHttpHandler
                         serializer.Serialize(
                             new
                             {
-                                url = dtS.Rows[0]["url"],
-                                nome = dtS.Rows[0]["titulo"],
+                                url = drS["url"],
+                                nome = drS["titulo"],
                             }
                         ));
                 }
@@ -574,8 +574,8 @@ public class TemasHandler : IHttpHandler
                         serializer.Serialize(
                             new
                             {
-                                url = dtC.Rows[0]["url"],
-                                nome = dtC.Rows[0]["titulo"],
+                                url = drC["url"],
+                                nome = drC["titulo"],
                             }
                         ));
                 }

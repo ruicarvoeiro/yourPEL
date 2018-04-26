@@ -35,13 +35,14 @@ namespace AdminYourPEL
                 imagem.SaveAs(path);
                 url = "admin//Imagens//" + strDate + "_" + titulo.Text + Path.GetExtension(imagem.FileName).ToLower();
             }
+            String cena = ddsubTema.Items[ddsubTema.SelectedIndex].Text;
 
             SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["YourPELcs"].ToString());
             db.Open();
             SqlCommand cmd = db.CreateCommand();
             cmd.CommandType = CommandType.Text;
             string encodedText = Server.HtmlEncode(txtCkEditor.Text);
-            cmd.CommandText = "INSERT INTO ARTIGO VALUES('" + strDate + "','" + autor.Text + "','" + titulo.Text + "','" + txtCkEditor.Text + "',0,'" + ddtema.Text + "','" + ddsubTema.Text + "','" + descricao.Text + "','" + "" + "','" + false + "','" + url + "')";
+            cmd.CommandText = "INSERT INTO ARTIGO VALUES('" + strDate + "','" + autor.Text + "','" + titulo.Text + "','" + txtCkEditor.Text + "',0,'" + ddtema.Text + "','" + ddsubTema.Text + "','" + descricao.Text + "','" + "" + "','" + false + "','" + (cena == "Links Úteis" ? descricao.Text : url) + "')";
             cmd.ExecuteNonQuery();
             db.Close();
 
@@ -65,6 +66,7 @@ namespace AdminYourPEL
                 txtCkEditor.Visible = false;
                 titulo.Visible = false;
                 LabelTitulo.Visible = false;
+                titulo.Text = "sem_titulo";
 
             }
             else if (cena == "Links Úteis")
