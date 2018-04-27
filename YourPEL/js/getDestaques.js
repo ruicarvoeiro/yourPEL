@@ -2,7 +2,7 @@
 var numeroVideos = 0;
 
 $(document).ready(function () {
-    getDestaques(7);
+    getDestaques(8);
 
     $.ajax({
         url: `/handlers/HandlerDestaques.ashx?type=2`,
@@ -115,8 +115,8 @@ function addBlocoVideo(i, tema, link, titulo, texto) {
             `<div onclick="verVideo(this)" name="${link}" style="cursor: pointer;">
                 <div class ="${tema.toLowerCase()} bloco-1 card video wow fadeIn hvr-grow">
                 <img class ="botaoClickImagem" src="imagens/play_btn.png">
-                    <img class ="imgVideo" src="${urlParaVideo}"
-                    onError="this.onerror=null;this.src='http://img.youtube.com/vi/${link.split('&list=')[0].split('watch?v=')[1]}/hqdefault.jpg'">
+                    <img class ="imgVideo" src="http://img.youtube.com/vi/${link.split('&list=')[0].split('watch?v=')[1]}/maxresdefault.jpg"
+                        onError="this.onerror=null;this.src='http://img.youtube.com/vi/${link.split('&list=')[0].split('watch?v=')[1]}/hqdefault.jpg'">                  
                     <div class ="textoBloco">
                         <div class ="blocoTopo">
                             <p class ="titulo">VIDEOS</p>
@@ -139,9 +139,9 @@ function addVideo(tema, link, titulo, texto) {
     var video =
             `<div onclick="verVideo(this)" name="${link}" style="cursor: pointer;">
                 <div class ="${tema.toLowerCase()} video card wow fadeIn hvr-grow">
-                    <img class="botaoClickImagem" src="imagens/play_btn.png">
-                    <img class="imgVideo" src="${urlParaVideo}"
-                    onError="this.onerror=null;this.src='http://img.youtube.com/vi/${link.split('&list=')[0].split('watch?v=')[1]}/hqdefault.jpg'">
+                    <img class="botaoClickImagem" src="imagens/play_btn.png">     
+                    <img class ="imgVideo" src="http://img.youtube.com/vi/${link.split('&list=')[0].split('watch?v=')[1]}/maxresdefault.jpg"
+                        onError="this.onerror=null;this.src='http://img.youtube.com/vi/${link.split('&list=')[0].split('watch?v=')[1]}/hqdefault.jpg'">                  
                     <div class ="textoBloco">
                         <div class ="blocoTopo">
                             <p class ="titulo">VIDEOS</p>
@@ -220,7 +220,7 @@ function getDestaques(x) {
                     break;
                 }
             } //for
-            numeroDestaques += listaDestaques.length;
+            numeroDestaques += listaDestaques.length +1;
         } //sucess
     }); //ajax
 } //getDestaques
@@ -273,10 +273,17 @@ function emQueColunaDeveriaAdicionar(i) {
         inserirNaColuna = ".col2";
     } //if mobile
     else if (i >= 0){
-        if (i == 2)
-            inserirNaColuna = ".col3";
-        else if (i == 1)
-            inserirNaColuna = ".col2";
+        if (numeroDestaques <= 0) {
+            if (i == 2)
+                inserirNaColuna = ".col3";
+            else if (i == 1)
+                inserirNaColuna = ".col2";
+        } else {
+            if (i == 1)
+                inserirNaColuna = ".col3";
+            else if (i == 0)
+                inserirNaColuna = ".col2";
+        }
     } //else (PC)
     return inserirNaColuna;
 } //emQueColunaDeveriaAdicionar

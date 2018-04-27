@@ -37,7 +37,7 @@
                     </div>
                     <div class="col-md-10">
                         <div class="form-group">
-                            <asp:TextBox ID="conteudoo" MaxLength="99" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="conteudoo" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -64,6 +64,7 @@
         </div>
     </form>
     <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+    <script src="Scripts/jquery-3.3.1.js"></script>
     <script type="text/javascript">
         CKEDITOR.replace('<%=conteudoo.ClientID %>', { filebrowserImageUploadUrl: '/handlers/UploadImagens.ashx' });
     </script>

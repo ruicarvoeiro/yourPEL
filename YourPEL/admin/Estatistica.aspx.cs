@@ -302,7 +302,7 @@ namespace AdminYourPEL
             //lbCsv.Text = "Dados exportados para " + path + " com sucesso!";
 
             string attachment = "attachment; filename=Dados_Estatistica_" + DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss") + ".csv";
-
+            //chupa pilas
             HttpContext.Current.Response.Clear();
             HttpContext.Current.Response.ClearHeaders();
             HttpContext.Current.Response.ClearContent();

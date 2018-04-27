@@ -23,8 +23,10 @@ namespace AdminYourPEL
                 if (
                     Path.GetExtension(docAFazerUpload.FileName).ToLower() == ".pdf" ||
                     Path.GetExtension(docAFazerUpload.FileName).ToLower() == ".doc" ||
+                    Path.GetExtension(docAFazerUpload.FileName).ToLower() == ".ppt" ||
                     Path.GetExtension(docAFazerUpload.FileName).ToLower() == ".docx"
                     )
+                    //DONE
                 {
                     //Inicialização do id do documento escolhido
                     int idDocAInserir = inserirDoc(

@@ -11,7 +11,7 @@ $(document).ready(function () {
     else if(classe.includes("consumos"))
         classe = "CONSUMOS";
 
-    getDestaques(classe, 7);
+    getDestaques(classe, 8);
     
     $.ajax({
         url: `/handlers/HandlerTemas.ashx?type=2`,
@@ -67,7 +67,7 @@ $(document).ready(function () {
 
     $(".conteudo .carregarMais").click(function () {
         var before = numeroDestaques;
-        getDestaques(classe, 6);
+        getDestaques(classe, 7);
         if(numeroDestaques == before)
             $(".conteudo .carregarMais").hide();
     }); //artigos button click
@@ -134,8 +134,7 @@ function addVideo(link, titulo, texto) {
         <div class="bloco-1 postVideo hvr-grow wow fadeIn">
             
             <img class="botaoClickImagem" src="imagens/play_btn.png">
-            <img
-            src="http://img.youtube.com/vi/${link.split('&list=')[0].split('watch?v=')[1]}/maxresdefault.jpg"
+            <img src="http://img.youtube.com/vi/${link.split('&list=')[0].split('watch?v=')[1]}/maxresdefault.jpg"
             onError="this.onerror=null;this.src='http://img.youtube.com/vi/${link.split('&list=')[0].split('watch?v=')[1]}/hqdefault.jpg'">
 
             <p class="titulo">${titulo}</p>
@@ -251,11 +250,19 @@ function emQueColunaDeveriaAdicionar(i) {
     if ($(document).width() <= 320){
         inserirNaColuna = ".col2";
     } //if mobile
-    else if (i >= 0){
-        if (i == 2)
-            inserirNaColuna = ".col3";
-        else if (i == 1)
-            inserirNaColuna = ".col2";
+    else if (i >= 0) {
+        if (numeroDestaques <= 0) {
+            if (i == 2)
+                inserirNaColuna = ".col3";
+            else if (i == 1)
+                inserirNaColuna = ".col2";
+        } else {
+            if (i == 1)
+                inserirNaColuna = ".col3";
+            else if (i == 0)
+                inserirNaColuna = ".col2";
+        }
+        
     } //else (PC)
     return inserirNaColuna;
 } //emQueColunaDeveriaAdicionar

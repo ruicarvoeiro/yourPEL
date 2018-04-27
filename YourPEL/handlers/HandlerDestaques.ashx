@@ -63,7 +63,7 @@ public class HandlerDestaques : IHttpHandler
                     //NOTA: ver formato que vem da base de dados
                     //tipo frontend ARTIGO, SABIAS-QUE
 
-                    if ((jafoi != 1 && dt.Rows[i]["subTema"].Equals("Artigo")) || dt.Rows[i]["subTema"].Equals("SabiasQue") || dt.Rows[i]["subTema"].Equals("Videos"))
+                    if (((jafoi != 1 && dt.Rows[i]["subTema"].Equals("Artigo")) ||  numeroArtigosRecebidos > 10) || dt.Rows[i]["subTema"].Equals("SabiasQue") || dt.Rows[i]["subTema"].Equals("Videos"))
                     {
                         var temaArtigos = "";
                         if (dt.Rows[i]["tema"].ToString() == "Consumos Nocivos")

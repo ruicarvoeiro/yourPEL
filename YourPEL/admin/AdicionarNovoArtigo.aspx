@@ -125,7 +125,7 @@
             </div>
         </div>
     </form>
-        <type="text/javascript" src="Scripts/ckeditor/ckeditor.js"></>
+    <script "text/javascript" src="Scripts/ckeditor/ckeditor.js"></script>
     <script src="Scripts/jquery-3.3.1.js"></script>
     <script type="text/javascript">
         CKEDITOR.replace('<%=txtCkEditor.ClientID %>', { filebrowserImageUploadUrl: '/handlers/UploadImagens.ashx' });
