@@ -20,6 +20,9 @@ namespace TestYourPEL_CKEDITOR.Views.PublicarArtigo
             string file = System.IO.Path.GetFileName(uploads.FileName);
             uploads.SaveAs(context.Server.MapPath(".") + "\\Imagens\\" + file);
             //provide direct URL here
+
+           //maybe the error is there
+           //try to put another url or try to change the way to do that shit
             string url = "http://localhost/admin/Imagens/" + file;
 
             context.Response.Write("<script>window.parent.CKEDITOR.tools.callFunction("+", \"" + url + "\");</script>");

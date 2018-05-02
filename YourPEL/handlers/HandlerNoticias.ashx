@@ -24,7 +24,7 @@ public class NoticiasHandler : IHttpHandler
 
         try
         {
-
+           
             SqlCommand cmd = new SqlCommand("SELECT [idArtigo], [titulo], [descricao], [url]" +
                 " FROM [YourPEL].[dbo].[ARTIGO] WHERE [tema] LIKE 'Not_cias' AND " +
                 "[ativo] = 'True' ORDER BY [dataHora] DESC", con);
@@ -44,7 +44,7 @@ public class NoticiasHandler : IHttpHandler
                                 imagemCapa = dt.Rows[i]["url"],
                                 titulo = dt.Rows[i]["titulo"],
                                 resumo = dt.Rows[i]["descricao"],
-                                numeroArtigo = dt.Rows[i]["idArtigo"]
+                                numeroNoticia = dt.Rows[i]["idArtigo"]
                             }
                     ));
 

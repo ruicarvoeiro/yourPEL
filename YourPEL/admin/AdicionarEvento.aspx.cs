@@ -82,21 +82,19 @@ namespace AdminYourPEL
         private int inserirEvento(string nome, string local, string descricao, string url, string hI, string hF)
         {
             int idDoEvento = 0;
-            /*DateTime horaInicio = new DateTime();
+            var format = "yyyy-MM-dd HH:mm";
+            DateTime horaInicio = new DateTime();
             horaInicio = DateTime.ParseExact(hI, format, null);
 
             DateTime horaFim = new DateTime();
-            horaFim = DateTime.ParseExact(hF, format, null);*/
-            var format = "yyyy-MM-dd HH:mm";
-            hI = DateTime.Now.ToString(format);
-            hF = DateTime.Now.ToString(format);
+            horaFim = DateTime.ParseExact(hF, format, null);
 
             string query = "INSERT INTO EVENTO values('" +
                             nome + "','" +
                             local + "','" +
                             descricao + "','" +
-                            hI + "','" +
-                            hF + "','" +
+                            horaInicio + "','" +
+                            horaFim + "','" +
                             url + "'); SELECT SCOPE_IDENTITY();"; 
 
             using (SqlConnection connection = new SqlConnection())

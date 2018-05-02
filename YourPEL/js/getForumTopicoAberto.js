@@ -76,6 +76,8 @@ function contadorRespostas() {
             `<span class="topicoNrRespostasAberto">${numeroRespostas.length}  respostas</span>`;
 
     $(inserirNaColuna).append(nrRespostas);
+    //$(".simboloResposta").append("<img src='imagens/chat_icon.png'>");
+
 } //contadorRespostas
 
 function addResposta(data,texto,quemRespondeu) {

@@ -117,7 +117,7 @@
                 <asp:CommandField ShowDeleteButton="True" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:YourPELcs %>" DeleteCommand="DELETE FROM [POST] WHERE [ID_POST] = @ID_POST" InsertCommand="INSERT INTO [POST] ([TITULO], [DATA_HORA], [TEMA]) VALUES (@TITULO, @DATA_HORA, @TEMA)" SelectCommand="SELECT [TITULO], [ID_POST], [DATA_HORA], [TEMA] FROM [POST] ORDER BY [ID_POST] DESC" UpdateCommand="UPDATE [POST] SET [TITULO] = @TITULO, [DATA_HORA] = @DATA_HORA, [TEMA] = @TEMA WHERE [ID_POST] = @ID_POST">
+        <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:YourPELcs %>" DeleteCommand="DELETE FROM [RESPOSTA] WHERE [ID_POST] = @ID_POST; DELETE FROM [POST] WHERE [ID_POST] = @ID_POST" InsertCommand="INSERT INTO [POST] ([TITULO], [DATA_HORA], [TEMA]) VALUES (@TITULO, @DATA_HORA, @TEMA)" SelectCommand="SELECT [TITULO], [ID_POST], [DATA_HORA], [TEMA] FROM [POST] ORDER BY [ID_POST] DESC" UpdateCommand="UPDATE [POST] SET [TITULO] = @TITULO, [DATA_HORA] = @DATA_HORA, [TEMA] = @TEMA WHERE [ID_POST] = @ID_POST">
             <DeleteParameters>
                 <asp:Parameter Name="ID_POST" Type="Int32" />
             </DeleteParameters>

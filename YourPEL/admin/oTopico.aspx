@@ -113,6 +113,7 @@
                 <div class="col-md-10">
                     <div class="form-group">
                         <asp:Button ID="Button1" runat="server" class="btn btn-block btn-danger" Text="Publicar" OnClick="Button1_Click"/>
+                    <asp:Button ID="cancelar" runat="server" class="btn btn-block btn-danger" Text="Cancelar" OnClick="cancelar_Click" />
                     </div>
                 </div>
             </div>

@@ -36,10 +36,11 @@ public class GenericHandler1 : IHttpHandler
         var strDate = DateTime.Now.ToString(format);
 
         String pergunta = context.Request.Form["pergunta"].ToString();
-        String tema = context.Request.Form["tema"].ToString();
+        String tema = context.Request.Form["tema"].ToString();   
         String descricao = context.Request.Form["descricao"].ToString();
         try
         {
+            
             con.Open();
             SqlCommand cmd = new SqlCommand(
                    "INSERT INTO POST VALUES ('" +

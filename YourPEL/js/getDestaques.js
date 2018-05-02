@@ -108,7 +108,7 @@ function addBlocoSabiasQue(i, tema, imagem, texto) {
 function addBlocoVideo(i, tema, link, titulo, texto) {
     var inserirNaColuna = emQueColunaDeveriaAdicionar(i);
 
-    var urlParaVideo = `http://img.youtube.com/vi/${link.split('&list=')[0].split('watch?v=')[1]}/maxresdefault.jpg`;
+    //var urlParaVideo = `http://img.youtube.com/vi/${link.split('&list=')[0].split('watch?v=')[1]}/maxresdefault.jpg`;
     var nomeFicheiroImagem = tema.charAt(0).toUpperCase() + tema.substr(1).toLowerCase();
 
     var bloco =
@@ -134,7 +134,7 @@ function addBlocoVideo(i, tema, link, titulo, texto) {
 } //addBlocoVideo
 
 function addVideo(tema, link, titulo, texto) {
-    var urlParaVideo = `http://img.youtube.com/vi/${link.split('&list=')[0].split('watch?v=')[1]}/maxresdefault.jpg`;
+    //var urlParaVideo = `http://img.youtube.com/vi/${link.split('&list=')[0].split('watch?v=')[1]}/maxresdefault.jpg`;
     var nomeFicheiroImagem = tema.charAt(0).toUpperCase() + tema.substr(1).toLowerCase();
     var video =
             `<div onclick="verVideo(this)" name="${link}" style="cursor: pointer;">

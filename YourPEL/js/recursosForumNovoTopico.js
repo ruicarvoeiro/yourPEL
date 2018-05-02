@@ -22,12 +22,12 @@ $(document).on('click', '.btn_postar', function () {
     var pergunta = $('.textoTituloNovoTopico').val();
     if(pergunta.trim() != ""){
         var descricao = $('.textoDescricao').val();
-        if (tema == "Alimentação")
+        /*if (tema == "Alimentação")
             tema = "ALIMENTACAO";
         else if (tema == "Consumos Nocivos")
             tema = "CONSUMOS";
         else
-            tema = "SEXUALIDADE";
+            tema = "SEXUALIDADE";*/
 
         $.ajax({
             url: `/handlers/HandlerForumNovoTopico.ashx?type=1`,

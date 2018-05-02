@@ -52,7 +52,7 @@ public class GenericHandler1 : IHttpHandler
                     serializer.Serialize(
                         new
                         {
-                            tema = dr["TEMA"],
+                            tema = qualTema(dr["TEMA"].ToString()),
                             numeroRespostas = drr["nRespostas"],
                             pergunta = dr["TITULO"],
                             data = date.Day + " de " + date.ToString("MMMM") + " de " + date.Year, //+ " às "+ date.Hour+":"+date.Minute,
@@ -67,6 +67,19 @@ public class GenericHandler1 : IHttpHandler
         context.Response.ContentType = "plain/text";
         context.Response.Write(json);
     } //getListaTopicos
+
+    public string qualTema(String tema)
+    {
+        string temaArtigos;
+        if (tema.Equals("Consumos Nocivos"))
+            temaArtigos = "CONSUMOS";
+        else if (tema.ToString() == "Sexualidade")
+            temaArtigos = "SEXUALIDADE";
+        else
+            temaArtigos = "ALIMENTACAO";
+        return temaArtigos;
+    }//qualTema
+
     public bool IsReusable
     {
         get

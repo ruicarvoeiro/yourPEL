@@ -159,5 +159,10 @@ namespace AdminYourPEL
             ativado(idPost);
             Response.Redirect("~/admin/Forum.aspx");
         }
+
+        protected void cancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/admin/Forum.aspx");
+        }
     }
 }

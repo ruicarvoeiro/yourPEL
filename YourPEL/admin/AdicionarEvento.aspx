@@ -69,7 +69,7 @@
                 </div>
                 <div class="col-md-10">
                     <div class="form-group">
-                        <asp:TextBox ID="horaInicio" TextMode="DateTime" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="horaInicio" TextMode="DateTime" CssClass="form-control" runat="server" placeholder="yyyy-MM-dd HH:mm" ></asp:TextBox>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                 </div>
                 <div class="col-md-10">
                     <div class="form-group">
-                        <asp:TextBox ID="horaFim" TextMode="DateTime" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="horaFim" TextMode="DateTime" CssClass="form-control" runat="server" placeholder="yyyy-MM-dd HH:mm"></asp:TextBox>
                     </div>
                 </div>
             </div>

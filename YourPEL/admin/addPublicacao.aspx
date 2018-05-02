@@ -66,7 +66,7 @@
     <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
     <script src="Scripts/jquery-3.3.1.js"></script>
     <script type="text/javascript">
-        CKEDITOR.replace('<%=conteudoo.ClientID %>', { filebrowserImageUploadUrl: '/handlers/UploadImagens.ashx' });
+        CKEDITOR.replace('<%=conteudoo.ClientID %>', { filebrowserImageUploadUrl: 'admin/handlers/UploadImagens.ashx' });
     </script>
 </asp:Content>
 

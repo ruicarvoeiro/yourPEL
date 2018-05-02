@@ -236,11 +236,11 @@
     <Content Include="fonts\Raleway-Thin.ttf" />
     <Content Include="fonts\Raleway-ThinItalic.ttf" />
     <Content Include="handlers\Estatistica.ashx" />
-    <Content Include="handlers\UploadImagens.ashx" />
     <Content Include="admin\GraficoArtigos.cshtml" />
     <Content Include="admin\GraficoDispositivos.cshtml" />
     <Content Include="admin\GraficoTemas.cshtml" />
     <Content Include="admin\GraficoVisitas.cshtml" />
+    <Content Include="admin\handlers\UploadImagens.ashx" />
     <None Include="packages.config" />
     <Content Include="admin\Scripts\bootstrap.js" />
     <Content Include="admin\Scripts\bootstrap.min.js" />
