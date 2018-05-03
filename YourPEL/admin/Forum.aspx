@@ -114,7 +114,7 @@
                         <asp:Button ID="btnEdit" runat="server" Width="60" Text="Abrir" CommandName="EditButton" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:CommandField ShowDeleteButton="True" />
+                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:YourPELcs %>" DeleteCommand="DELETE FROM [RESPOSTA] WHERE [ID_POST] = @ID_POST; DELETE FROM [POST] WHERE [ID_POST] = @ID_POST" InsertCommand="INSERT INTO [POST] ([TITULO], [DATA_HORA], [TEMA]) VALUES (@TITULO, @DATA_HORA, @TEMA)" SelectCommand="SELECT [TITULO], [ID_POST], [DATA_HORA], [TEMA] FROM [POST] ORDER BY [ID_POST] DESC" UpdateCommand="UPDATE [POST] SET [TITULO] = @TITULO, [DATA_HORA] = @DATA_HORA, [TEMA] = @TEMA WHERE [ID_POST] = @ID_POST">
@@ -152,7 +152,7 @@
                         <asp:Button ID="btnEdit" runat="server" Width="60" Text="Abrir" CommandName="EditButton" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:CommandField ShowDeleteButton="True" />
+                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:YourPELcs %>" DeleteCommand="DELETE FROM [POST] WHERE [ID_POST] = @ID_POST" InsertCommand="INSERT INTO [POST] ([TITULO], [DATA_HORA], [TEMA]) VALUES (@TITULO, @DATA_HORA, @TEMA)" SelectCommand="SELECT [ID_POST], [TITULO], [DATA_HORA], [TEMA] FROM [POST] WHERE ([TEMA] = @TEMA)" UpdateCommand="UPDATE [POST] SET [TITULO] = @TITULO, [DATA_HORA] = @DATA_HORA, [TEMA] = @TEMA WHERE [ID_POST] = @ID_POST">
@@ -191,7 +191,7 @@
                         <asp:Button ID="btnEdit" runat="server" Width="60" Text="Abrir" CommandName="EditButton" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:CommandField ShowDeleteButton="True" />
+                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:YourPELcs %>" DeleteCommand="DELETE FROM [POST] WHERE [ID_POST] = @ID_POST" InsertCommand="INSERT INTO [POST] ([TITULO], [DATA_HORA], [TEMA]) VALUES (@TITULO, @DATA_HORA, @TEMA)" SelectCommand="SELECT [ID_POST], [TITULO], [DATA_HORA], [TEMA] FROM [POST] WHERE ([TEMA] = @TEMA)" UpdateCommand="UPDATE [POST] SET [TITULO] = @TITULO, [DATA_HORA] = @DATA_HORA, [TEMA] = @TEMA WHERE [ID_POST] = @ID_POST">
@@ -230,7 +230,7 @@
                         <asp:Button ID="btnEdit" runat="server" Width="60" Text="Abrir" CommandName="EditButton" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:CommandField ShowDeleteButton="True" />
+                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource8" runat="server" ConnectionString="<%$ ConnectionStrings:YourPELcs %>" DeleteCommand="DELETE FROM [POST] WHERE [ID_POST] = @ID_POST" InsertCommand="INSERT INTO [POST] ([TITULO], [DATA_HORA], [TEMA]) VALUES (@TITULO, @DATA_HORA, @TEMA)" SelectCommand="SELECT [ID_POST], [TITULO], [DATA_HORA], [TEMA] FROM [POST] WHERE ([TEMA] = @TEMA)" UpdateCommand="UPDATE [POST] SET [TITULO] = @TITULO, [DATA_HORA] = @DATA_HORA, [TEMA] = @TEMA WHERE [ID_POST] = @ID_POST">

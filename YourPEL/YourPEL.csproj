@@ -155,11 +155,8 @@
     <Content Include="admin\Forum.aspx" />
     <Content Include="admin\GestaoGlossario.aspx" />
     <Content Include="admin\GlossarioA.aspx" />
-    <Content Include="glossarioA.xml" />
     <Content Include="admin\GlossarioC.aspx" />
-    <Content Include="glossarioC.xml" />
     <Content Include="admin\GlossarioS.aspx" />
-    <Content Include="glossarioS.xml" />
     <Content Include="admin\Login.Master" />
     <Content Include="admin\Administracao.Master" />
     <Content Include="admin\Noticia.aspx" />
