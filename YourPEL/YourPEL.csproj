@@ -111,6 +111,9 @@
     <Content Include="divulgacao.html" />
     <Content Include="forum.html" />
     <Content Include="galeria.html" />
+    <Content Include="glossarioA.xml" />
+    <Content Include="glossarioC.xml" />
+    <Content Include="glossarioS.xml" />
     <Content Include="index.html" />
     <Content Include="noticia.html" />
     <Content Include="parceiros.html" />
@@ -118,9 +121,6 @@
     <Content Include="sobre.html" />
     <Content Include="consumos.html" />
     <Content Include="topico.html" />
-    <Content Include="admin\glossarioA.xml" />
-    <Content Include="admin\glossarioC.xml" />
-    <Content Include="admin\glossarioS.xml" />
     <EntityDeploy Include="admin\DBYOURPEL.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBYOURPEL.Designer.cs</LastGenOutput>

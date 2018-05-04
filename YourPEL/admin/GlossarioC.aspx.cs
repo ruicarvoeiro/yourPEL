@@ -45,7 +45,7 @@ namespace AdminYourPEL
             {
                 string primeiraLetraDaNovaEntrada = novaEntrada[0].ToString();
 
-                XDocument doc = XDocument.Load(Server.MapPath("glossarioC.xml"));
+                XDocument doc = XDocument.Load(Server.MapPath("~/glossarioC.xml"));
                 XElement novaDefinicao = new XElement("definicao");
                 XElement titulo = new XElement("titulo");
                 XElement conteudo = new XElement("conteudo");
@@ -70,7 +70,7 @@ namespace AdminYourPEL
                         letraAlvo.Add(el);
                     }
 
-                    doc.Save(Server.MapPath("glossarioC.xml"));
+                    doc.Save(Server.MapPath("~/glossarioC.xml"));
 
                     this.DataBind(); //refresh dos XML sources
                     lblFeedback.ForeColor = System.Drawing.Color.Green;
@@ -94,7 +94,7 @@ namespace AdminYourPEL
             lblFeedback.Text = "";
             e.Cancel = true; //evento para delete por defeito não é utilizado, é cancelado para não gerar conflito
             XmlDocument xd = new XmlDocument();
-            xd.Load(Server.MapPath("glossarioC.xml"));
+            xd.Load(Server.MapPath("~/glossarioC.xml"));
 
             string tituloAlvo = e.Keys["Título"].ToString();
             XmlNode titulo = xd.SelectSingleNode("//titulo[text()='" + tituloAlvo + "']");
@@ -102,7 +102,7 @@ namespace AdminYourPEL
 
             xd.SelectSingleNode("//letra[@id='" + tituloAlvo[0].ToString().ToLower() + "']").RemoveChild(definicaoARemover);
 
-            xd.Save(Server.MapPath("glossarioC.xml"));
+            xd.Save(Server.MapPath("~/glossarioC.xml"));
             this.DataBind(); //refresh dos XML sources
             lblFeedback2.ForeColor = System.Drawing.Color.Green;
             lblFeedback2.Text = "Entrada apagada.";
@@ -115,14 +115,14 @@ namespace AdminYourPEL
             lblFeedback.Text = "";
             e.Cancel = true; //evento para update por defeito não é utilizado, é cancelado para não gerar conflito
             XmlDocument xd = new XmlDocument();
-            xd.Load(Server.MapPath("glossarioC.xml"));
+            xd.Load(Server.MapPath("~/glossarioC.xml"));
 
             string tituloAlvo = e.Keys["Título"].ToString();
             XmlNode titulo = xd.SelectSingleNode("//titulo[text()='" + tituloAlvo + "']");
             XmlNode descricao = titulo.NextSibling;
             descricao.InnerText = e.NewValues["Descrição"].ToString();
 
-            xd.Save(Server.MapPath("glossarioC.xml"));
+            xd.Save(Server.MapPath("~/glossarioC.xml"));
             this.DataBind(); //refresh dos XML sources
 
             lblFeedback2.Text = "Entrada atualizada.";
