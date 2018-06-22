@@ -26,3 +26,31 @@ C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\bin\Syste
 C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\bin\System.Web.WebPages.Deployment.xml
 C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\bin\System.Web.WebPages.Razor.xml
 C:\Users\rui_c\OneDrive\Área de Trabalho\yourpelFINAL\YourPEL\YourPEL\obj\Debug\YourPEL.csprojResolveAssemblyReference.cache
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\YourPEL.dll.config
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\YourPEL.dll
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\YourPEL.pdb
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\EntityFramework.dll
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\EntityFramework.SqlServer.dll
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\Microsoft.Web.Infrastructure.dll
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\Newtonsoft.Json.dll
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\System.Web.Helpers.dll
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\System.Web.Mvc.dll
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\System.Web.Razor.dll
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\System.Web.WebPages.Deployment.dll
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\System.Web.WebPages.dll
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\System.Web.WebPages.Razor.dll
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\EntityFramework.xml
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\EntityFramework.SqlServer.xml
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\Newtonsoft.Json.xml
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\System.Web.Helpers.xml
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\System.Web.Mvc.xml
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\System.Web.Razor.xml
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\System.Web.WebPages.xml
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\System.Web.WebPages.Deployment.xml
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\bin\System.Web.WebPages.Razor.xml
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\obj\Debug\YourPEL.csprojResolveAssemblyReference.cache
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\obj\Debug\YourPEL.csproj.CoreCompileInputs.cache
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\obj\Debug\YourPEL.dll
+D:\Cadeiras\3ºAno-1ºSemestre\Integração de Sistemas II\Trabalho\Projeto Your PEL\Projeto\yourpelFINAL\YourPEL\YourPEL\obj\Debug\YourPEL.pdb

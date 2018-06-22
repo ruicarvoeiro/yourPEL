@@ -17,12 +17,12 @@
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
-                        <asp:Button ID="Button2" runat="server" class="btn btn-block btn-danger" Text="Ativar Visibilidade"  OnClick="Button2_Click"/>
+                        <asp:Button ID="Button2" runat="server" class="btn btn-block btn-danger" Text="Abrir Tópico"  OnClick="Button2_Click"/>
                     </div>
                 </div>
                 <div class="col-md-5">
                      <div class="form-group">
-                        <asp:Button ID="Button3" runat="server" class="btn btn-block btn-danger" Text="Desativar Visibilidade" OnClick="Button3_Click" />
+                        <asp:Button ID="Button3" runat="server" class="btn btn-block btn-danger" Text="Fechar Tópico" OnClick="Button3_Click" />
                     </div>
                 </div>
             </div>
@@ -33,12 +33,12 @@
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
-                        <asp:Button ID="Button4" runat="server" class="btn btn-block btn-danger" Text="Abrir Tópico"  OnClick="Button4_Click"/>
+                        <asp:Button ID="Button4" runat="server" class="btn btn-block btn-danger" Text="Ativar Visibilidade"  OnClick="Button4_Click"/>
                     </div>
                 </div>
                 <div class="col-md-5">
                      <div class="form-group">
-                        <asp:Button ID="Button5" runat="server" class="btn btn-block btn-danger" Text="Fechar Tópico" OnClick="Button5_Click" />
+                        <asp:Button ID="Button5" runat="server" class="btn btn-block btn-danger" Text="Desativar Visibilidade" OnClick="Button5_Click" />
                     </div>
                 </div>
             </div>

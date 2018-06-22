@@ -32,7 +32,7 @@ namespace AdminYourPEL
                 texto + "','" +
                 strDate + "','" +
                 tema + "','" +
-                "true','" +
+                "false','" +
                 "false')", conn);
             cmd.ExecuteNonQuery();
             conn.Close();
